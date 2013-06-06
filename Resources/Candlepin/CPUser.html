@@ -223,12 +223,12 @@
       <pre class="lines">
 
 
-416
-417
-418</pre>
+423
+424
+425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 423</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_attrs'>attrs</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
@@ -253,12 +253,12 @@
       <pre class="lines">
 
 
-420
-421
-422</pre>
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 420</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 427</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/candlepin/users/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -273,7 +273,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:29 2013 by
+  Generated on Thu Jun  6 11:24:30 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

@@ -280,9 +280,9 @@ this should point to the katello docs link.</p>
       <pre class="code"><span class="info file"># File 'app/helpers/application_info_helper.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_component_status_icon'>component_status_icon</span><span class='lparen'>(</span><span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fail</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fail</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:span</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:class</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error_icon</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ok</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ok</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:span</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:class</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>check_icon</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>else</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -341,7 +341,7 @@ this should point to the katello docs link</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:12 2013 by
+  Generated on Thu Jun  6 11:24:12 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

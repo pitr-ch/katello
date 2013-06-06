@@ -93,7 +93,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="AsyncOrchestration.html" title="AsyncOrchestration (module)">AsyncOrchestration</a></span>, Authorization::Organization, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Ext/PermissionTagCleanup.html" title="Ext::PermissionTagCleanup (module)">Ext::PermissionTagCleanup</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, Glue::Candlepin::Owner, <span class='object_link'><a href="Glue/ElasticSearch/Organization.html" title="Glue::ElasticSearch::Organization (module)">Glue::ElasticSearch::Organization</a></span></dd>
+      <dd class="r2"><span class='object_link'><a href="AsyncOrchestration.html" title="AsyncOrchestration (module)">AsyncOrchestration</a></span>, Authorization::Organization, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Ext/PermissionTagCleanup.html" title="Ext::PermissionTagCleanup (module)">Ext::PermissionTagCleanup</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, Glue::Candlepin::Owner, <span class='object_link'><a href="Glue/ElasticSearch/Organization.html" title="Glue::ElasticSearch::Organization (module)">Glue::ElasticSearch::Organization</a></span>, <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span></dd>
       
     
   
@@ -417,7 +417,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#environments-instance_method" title="#environments (instance method)">- (Array&lt;Environment&gt;) <strong>environments</strong> </a>
+      <a href="#environments-instance_method" title="#environments (instance method)">- (Array&lt;KTEnvironment&gt;) <strong>environments</strong> </a>
     
 
     
@@ -754,6 +754,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create_event-instance_method" title="#create_event (instance method)">- (Object) <strong>create_event</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#create_library-instance_method" title="#create_library (instance method)">- (Object) <strong>create_library</strong> </a>
     
 
@@ -799,6 +821,28 @@
   <span class="summary_signature">
     
       <a href="#default_content_view-instance_method" title="#default_content_view (instance method)">- (Object) <strong>default_content_view</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_event-instance_method" title="#destroy_event (instance method)">- (Object) <strong>destroy_event</strong> </a>
     
 
     
@@ -989,8 +1033,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>TODO - this code seems to be dead.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1052,6 +1095,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Glue/Event.html#included-class_method" title="Glue::Event.included (method)">included</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger-class_method" title="Glue::Event.trigger (method)">trigger</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_create_event-instance_method" title="Glue::Event#trigger_create_event (method)">#trigger_create_event</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_destroy_event-instance_method" title="Glue::Event#trigger_destroy_event (method)">#trigger_destroy_event</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Glue.html#included-class_method" title="Glue.included (method)">included</a></span>, <span class='object_link'><a href="Glue.html#logger-class_method" title="Glue.logger (method)">logger</a></span></p>
 
@@ -1099,10 +1153,10 @@
       <pre class="lines">
 
 
-425</pre>
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 425</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 427</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>         <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1149,10 +1203,10 @@
       <pre class="lines">
 
 
-428</pre>
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 428</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 430</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span>     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_info</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1199,10 +1253,10 @@
       <pre class="lines">
 
 
-423</pre>
+425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 423</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 425</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>description</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1249,10 +1303,10 @@
       <pre class="lines">
 
 
-424</pre>
+426</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 426</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1299,10 +1353,10 @@
       <pre class="lines">
 
 
-422</pre>
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 422</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 424</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1337,12 +1391,12 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_statistics'>statistics</span>
   <span class='ivar'>@statistics</span>
@@ -1391,10 +1445,10 @@
       <pre class="lines">
 
 
-426</pre>
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 428</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>         <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1424,21 +1478,21 @@
       <pre class="lines">
 
 
-136
-137
-138
-139
-140
-141
-142
 143
 144
 145
 146
-147</pre>
+147
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_informable_type!'>check_informable_type!</span><span class='lparen'>(</span><span class='id identifier rubyid_informable_type'>informable_type</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_defaults'>defaults</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -1502,10 +1556,10 @@
       <pre class="lines">
 
 
-48</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 56</span>
 
 <span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:having_name_or_label</span><span class='comma'>,</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_name_or_label'>name_or_label</span><span class='op'>|</span> <span class='lbrace'>{</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name = :id or label = :id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='symbol'>:id</span><span class='op'>=&gt;</span><span class='id identifier rubyid_name_or_label'>name_or_label</span><span class='rbrace'>}</span><span class='rbracket'>]</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span></pre>
     </td>
@@ -1538,10 +1592,10 @@
       <pre class="lines">
 
 
-47</pre>
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 55</span>
 
 <span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:without_deleting</span><span class='comma'>,</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:deletion_task_id</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span></pre>
     </td>
@@ -1599,10 +1653,10 @@
       <pre class="lines">
 
 
-31</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 39</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:activation_keys</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span></pre>
     </td>
@@ -1625,13 +1679,6 @@
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155
 156
 157
 158
@@ -1641,10 +1688,17 @@
 162
 163
 164
-165</pre>
+165
+166
+167
+168
+169
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply_default_info'>apply_default_info</span><span class='lparen'>(</span><span class='id identifier rubyid_informable_type'>informable_type</span><span class='comma'>,</span> <span class='id identifier rubyid_custom_info'>custom_info</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -1705,13 +1759,13 @@
       <pre class="lines">
 
 
-122
-123
-124
-125</pre>
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_applying_default_info?'>applying_default_info?</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_apply_info_task_id'>apply_info_task_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1759,12 +1813,12 @@
       <pre class="lines">
 
 
-118
-119
-120</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_being_deleted?'>being_deleted?</span>
   <span class='op'>!</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_deletion_task_id'>deletion_task_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1818,10 +1872,10 @@
       <pre class="lines">
 
 
-40</pre>
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 48</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_definitions</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ContentViewDefinitionBase</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span><span class='op'>=&gt;</span> <span class='symbol'>:destroy</span></pre>
     </td>
@@ -1873,12 +1927,42 @@
       <pre class="lines">
 
 
-41</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 49</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_views</span><span class='comma'>,</span> <span class='symbol'>:dependent</span><span class='op'>=&gt;</span> <span class='symbol'>:destroy</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_event-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_event</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_event'>create_event</span>
+  <span class='const'>Headpin</span><span class='op'>::</span><span class='const'>Actions</span><span class='op'>::</span><span class='const'>OrgCreate</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1899,12 +1983,12 @@
       <pre class="lines">
 
 
-100
-101
-102</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_library'>create_library</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span> <span class='op'>=</span> <span class='const'>KTEnvironment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Library</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:label</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Library</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:library</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='rparen'>)</span>
@@ -1929,12 +2013,12 @@
       <pre class="lines">
 
 
-104
-105
-106</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_redhat_provider'>create_redhat_provider</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_providers'>providers</span> <span class='op'>&lt;&lt;</span> <span class='op'>::</span><span class='const'>Provider</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Red Hat</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:provider_type</span> <span class='op'>=&gt;</span> <span class='op'>::</span><span class='const'>Provider</span><span class='op'>::</span><span class='const'>REDHAT</span><span class='comma'>,</span> <span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='rparen'>)</span>
@@ -1959,15 +2043,45 @@
       <pre class="lines">
 
 
-77
-78
-79</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_content_view'>default_content_view</span>
   <span class='const'>ContentView</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:organization_id</span><span class='op'>=&gt;</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_event-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroy_event</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_event'>destroy_event</span>
+  <span class='const'>Headpin</span><span class='op'>::</span><span class='const'>Actions</span><span class='op'>::</span><span class='const'>OrgDestroy</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1989,12 +2103,12 @@
       <pre class="lines">
 
 
-85
-86
-87</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_distributors'>distributors</span>
   <span class='const'>Distributor</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_environments'>environments</span><span class='rparen'>)</span>
@@ -2007,7 +2121,7 @@
       <div class="method_details ">
   <h3 class="signature " id="environments-instance_method">
   
-    - (<tt>Array&lt;Environment&gt;</tt>) <strong>environments</strong> 
+    - (<tt>Array&lt;<span class='object_link'><a href="KTEnvironment.html" title="KTEnvironment (class)">KTEnvironment</a></span>&gt;</tt>) <strong>environments</strong> 
   
 
   
@@ -2027,7 +2141,7 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;Environment&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="KTEnvironment.html" title="KTEnvironment (class)">KTEnvironment</a></span>&gt;</tt>)</span>
       
       
       
@@ -2048,12 +2162,12 @@
       <pre class="lines">
 
 
-34</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 42</span>
 
-<span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:environments</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KTEnvironment</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:library</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
+<span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:environments</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KTEnvironment</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
     </td>
   </tr>
 </table>
@@ -2103,10 +2217,10 @@
       <pre class="lines">
 
 
-36</pre>
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 44</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:gpg_keys</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
     </td>
@@ -2129,17 +2243,17 @@
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+134
+135
+136
+137
+138
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_default_info'>initialize_default_info</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_info'>default_info</span> <span class='op'>||=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -2198,10 +2312,10 @@
       <pre class="lines">
 
 
-35</pre>
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 43</span>
 
 <span class='id identifier rubyid_has_one'>has_one</span> <span class='symbol'>:library</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KTEnvironment</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:library</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span></pre>
     </td>
@@ -2253,10 +2367,10 @@
       <pre class="lines">
 
 
-37</pre>
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 45</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:permissions</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
     </td>
@@ -2308,10 +2422,10 @@
       <pre class="lines">
 
 
-33</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 41</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:products</span><span class='comma'>,</span> <span class='symbol'>:through</span> <span class='op'>=&gt;</span> <span class='symbol'>:providers</span></pre>
     </td>
@@ -2334,15 +2448,15 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94</pre>
+97
+98
+99
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_promotion_paths'>promotion_paths</span>
   <span class='comment'>#I'm sure there's a better way to do this
@@ -2399,10 +2513,10 @@
       <pre class="lines">
 
 
-32</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 40</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:providers</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span></pre>
     </td>
@@ -2425,12 +2539,12 @@
       <pre class="lines">
 
 
-96
-97
-98</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redhat_provider'>redhat_provider</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_providers'>providers</span><span class='period'>.</span><span class='id identifier rubyid_redhat'>redhat</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -2455,12 +2569,12 @@
       <pre class="lines">
 
 
-167
-168
-169</pre>
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_apply_info'>run_apply_info</span><span class='lparen'>(</span><span class='id identifier rubyid_ids_and_types'>ids_and_types</span><span class='comma'>,</span> <span class='id identifier rubyid_custom_info'>custom_info</span><span class='rparen'>)</span>
   <span class='const'>CustomInfo</span><span class='period'>.</span><span class='id identifier rubyid_apply_to_set'>apply_to_set</span><span class='lparen'>(</span><span class='id identifier rubyid_ids_and_types'>ids_and_types</span><span class='comma'>,</span> <span class='id identifier rubyid_custom_info'>custom_info</span><span class='rparen'>)</span>
@@ -2514,10 +2628,10 @@
       <pre class="lines">
 
 
-38</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 46</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:sync_plans</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
     </td>
@@ -2569,10 +2683,10 @@
       <pre class="lines">
 
 
-39</pre>
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 47</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:system_groups</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:organization</span></pre>
     </td>
@@ -2595,12 +2709,12 @@
       <pre class="lines">
 
 
-81
-82
-83</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_systems'>systems</span>
   <span class='const'>System</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_environments'>environments</span><span class='rparen'>)</span>
@@ -2654,10 +2768,10 @@
       <pre class="lines">
 
 
-29</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 37</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:task_status</span></pre>
     </td>
@@ -2690,20 +2804,20 @@
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71
-72
 73
 74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unique_name_and_label'>unique_name_and_label</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_new_record?'>new_record?</span> <span class='op'>&amp;&amp;</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name = ? OR label = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
@@ -2730,33 +2844,23 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>TODO - this code seems to be dead</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+116
+117
+118
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'app/models/organization.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_destroy'>validate_destroy</span> <span class='id identifier rubyid_current_org'>current_org</span>
   <span class='id identifier rubyid_def_error'>def_error</span> <span class='op'>=</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not delete organization '%s'.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>  <span class='op'>%</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
@@ -2776,7 +2880,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:26 2013 by
+  Generated on Thu Jun  6 11:24:28 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

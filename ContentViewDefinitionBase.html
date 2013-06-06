@@ -1331,16 +1331,26 @@ as well as repositories that are explicitly associated with the definition).</p>
 101
 102
 103
-104</pre>
+104
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/content_view_definition_base.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_component_views'>validate_component_views</span><span class='lparen'>(</span><span class='id identifier rubyid_view'>view</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ContentViewDefinition</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_component_content_views'>component_content_views</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:library_repo_ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span> <span class='op'>+</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span>
+    <span class='comment'># check for repo overlap
+</span>    <span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_component_content_views'>component_content_views</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:library_repo_ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span> <span class='op'>+</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>!=</span> <span class='id identifier rubyid_library_repo_ids'>library_repo_ids</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>ContentViewRepositoryOverlap</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Definition cannot contain views with the same repositories.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_composite?'>composite?</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>ContentViewDefinitionBadContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Definition cannot contain views if not composite definition</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -1354,7 +1364,7 @@ as well as repositories that are explicitly associated with the definition).</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:42 2013 by
+  Generated on Thu Jun  6 11:24:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

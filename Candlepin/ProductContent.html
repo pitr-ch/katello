@@ -899,7 +899,8 @@
 128
 129
 130
-131</pre>
+131
+132</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/candlepin/product_content.rb', line 67</span>
@@ -926,7 +927,6 @@
 </span>    <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
 
-
   <span class='id identifier rubyid_ca'>ca</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='const'>Resources</span><span class='op'>::</span><span class='const'>CDN</span><span class='op'>::</span><span class='const'>CdnResource</span><span class='period'>.</span><span class='id identifier rubyid_ca_file'>ca_file</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_cdn_var_substitutor'>cdn_var_substitutor</span><span class='period'>.</span><span class='id identifier rubyid_substitute_vars'>substitute_vars</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_contentUrl'>contentUrl</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_substitutions'>substitutions</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='op'>|</span>
@@ -937,7 +937,8 @@
 
     <span class='kw'>begin</span>
       <span class='id identifier rubyid_env_prod'>env_prod</span> <span class='op'>=</span> <span class='const'>EnvironmentProduct</span><span class='period'>.</span><span class='id identifier rubyid_find_or_create'>find_or_create</span><span class='lparen'>(</span><span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='comma'>,</span> <span class='id identifier rubyid_product'>product</span><span class='rparen'>)</span>
-      <span class='kw'>unless</span> <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_product_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_env_prod'>env_prod</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='symbol'>:pulp_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_repo_id'>repo_id</span><span class='lparen'>(</span><span class='id identifier rubyid_repo_name'>repo_name</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+      <span class='id identifier rubyid_existing_repos'>existing_repos</span> <span class='op'>=</span> <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_product_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_env_prod'>env_prod</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='symbol'>:pulp_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_repo_id'>repo_id</span><span class='lparen'>(</span><span class='id identifier rubyid_repo_name'>repo_name</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_existing_repos'>existing_repos</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
         <span class='id identifier rubyid_repo'>repo</span> <span class='op'>=</span> <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='symbol'>:environment_product</span><span class='op'>=&gt;</span> <span class='id identifier rubyid_env_prod'>env_prod</span><span class='comma'>,</span> <span class='symbol'>:pulp_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_repo_id'>repo_id</span><span class='lparen'>(</span><span class='id identifier rubyid_repo_name'>repo_name</span><span class='rparen'>)</span><span class='comma'>,</span>
                                   <span class='symbol'>:cp_label</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span>
                                   <span class='symbol'>:content_id</span><span class='op'>=&gt;</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -954,6 +955,7 @@
                                   <span class='symbol'>:content_type</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span>
                                   <span class='symbol'>:preserve_metadata</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'>#preserve repo metadata when importing from cp
 </span>                                  <span class='symbol'>:enabled</span> <span class='op'>=&gt;</span><span class='kw'>false</span><span class='comma'>,</span>
+                                  <span class='symbol'>:unprotected</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
                                   <span class='symbol'>:content_view_version</span><span class='op'>=&gt;</span><span class='id identifier rubyid_env_prod'>env_prod</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view_version'>default_content_view_version</span>
                                  <span class='rparen'>)</span>
       <span class='kw'>end</span>
@@ -1011,7 +1013,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:36 2013 by
+  Generated on Thu Jun  6 11:24:37 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

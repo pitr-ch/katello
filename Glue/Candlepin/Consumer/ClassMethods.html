@@ -215,14 +215,14 @@
       <pre class="lines">
 
 
-513
-514
 515
 516
-517</pre>
+517
+518
+519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 513</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 515</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all_by_pool'>all_by_pool</span><span class='lparen'>(</span><span class='id identifier rubyid_pool_id'>pool_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_entitlements'>entitlements</span> <span class='op'>=</span> <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Entitlement</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span>
@@ -249,14 +249,14 @@
       <pre class="lines">
 
 
-519
-520
 521
 522
-523</pre>
+523
+524
+525</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 519</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 521</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all_by_pool_uuid'>all_by_pool_uuid</span><span class='lparen'>(</span><span class='id identifier rubyid_pool_id'>pool_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_entitlements'>entitlements</span> <span class='op'>=</span> <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Entitlement</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span>
@@ -283,18 +283,18 @@
       <pre class="lines">
 
 
-525
-526
 527
 528
 529
 530
 531
 532
-533</pre>
+533
+534
+535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 525</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 527</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_hypervisor'>create_hypervisor</span><span class='lparen'>(</span><span class='id identifier rubyid_environment_id'>environment_id</span><span class='comma'>,</span> <span class='id identifier rubyid_hypervisor_json'>hypervisor_json</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hypervisor'>hypervisor</span> <span class='op'>=</span> <span class='const'>Hypervisor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:environment_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_environment_id'>environment_id</span><span class='rparen'>)</span>
@@ -325,16 +325,16 @@
       <pre class="lines">
 
 
-535
-536
 537
 538
 539
 540
-541</pre>
+541
+542
+543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 535</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/candlepin/consumer.rb', line 537</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_hypervisors'>register_hypervisors</span><span class='lparen'>(</span><span class='id identifier rubyid_environment'>environment</span><span class='comma'>,</span> <span class='id identifier rubyid_hypervisors_attrs'>hypervisors_attrs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_consumers_attrs'>consumers_attrs</span> <span class='op'>=</span> <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Consumer</span><span class='period'>.</span><span class='id identifier rubyid_register_hypervisors'>register_hypervisors</span><span class='lparen'>(</span><span class='id identifier rubyid_hypervisors_attrs'>hypervisors_attrs</span><span class='rparen'>)</span>
@@ -353,7 +353,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:14 2013 by
+  Generated on Thu Jun  6 11:24:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

@@ -665,9 +665,6 @@ the results returned by Elasticsearch</p>
       <pre class="lines">
 
 
-105
-106
-107
 108
 109
 110
@@ -677,10 +674,13 @@ the results returned by Elasticsearch</p>
 114
 115
 116
-117</pre>
+117
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/elastic_search/items.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/elastic_search/items.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_records'>load_records</span>
   <span class='id identifier rubyid_collection'>collection</span> <span class='op'>=</span> <span class='ivar'>@obj_class</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='ivar'>@results</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -916,7 +916,10 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
 96
 97
 98
-99</pre>
+99
+100
+101
+102</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/glue/elastic_search/items.rb', line 48</span>
@@ -929,6 +932,7 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
   <span class='id identifier rubyid_all_rows'>all_rows</span>      <span class='op'>=</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_sort_by'>sort_by</span>       <span class='op'>=</span> <span class='id identifier rubyid_search_options'>search_options</span><span class='lbracket'>[</span><span class='symbol'>:sort_by</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>name</span><span class='tstring_end'>'</span></span>
   <span class='id identifier rubyid_sort_order'>sort_order</span>    <span class='op'>=</span> <span class='id identifier rubyid_search_options'>search_options</span><span class='lbracket'>[</span><span class='symbol'>:sort_order</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ASC</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_total_count'>total_count</span>   <span class='op'>=</span> <span class='int'>0</span>
 
   <span class='comment'># set the query default field, if one was provided.
 </span>  <span class='id identifier rubyid_query_options'>query_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -962,6 +966,8 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
     <span class='id identifier rubyid_from'>from</span> <span class='id identifier rubyid_start'>start</span>
   <span class='kw'>end</span>
 
+  <span class='id identifier rubyid_total_count'>total_count</span> <span class='op'>=</span> <span class='ivar'>@results</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span>
+
   <span class='kw'>if</span> <span class='id identifier rubyid_search_options'>search_options</span><span class='lbracket'>[</span><span class='symbol'>:load_records?</span><span class='rbracket'>]</span>
     <span class='ivar'>@results</span> <span class='op'>=</span> <span class='id identifier rubyid_load_records'>load_records</span>
   <span class='kw'>end</span>
@@ -971,7 +977,7 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
 
   <span class='ivar'>@results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 <span class='kw'>ensure</span>
-  <span class='kw'>return</span> <span class='ivar'>@results</span>
+  <span class='kw'>return</span> <span class='ivar'>@results</span><span class='comma'>,</span> <span class='id identifier rubyid_total_count'>total_count</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1020,9 +1026,6 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
       <pre class="lines">
 
 
-122
-123
-124
 125
 126
 127
@@ -1043,10 +1046,13 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
 142
 143
 144
-145</pre>
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/elastic_search/items.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/elastic_search/items.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_total_items'>total_items</span>
   <span class='ivar'>@total</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1082,7 +1088,7 @@ is OR&#39;d, whereas each HASH itself is AND&#39;d together</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:36 2013 by
+  Generated on Thu Jun  6 11:24:38 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

@@ -93,7 +93,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="AsyncOrchestration.html" title="AsyncOrchestration (module)">AsyncOrchestration</a></span>, Authorization::Repository, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, Glue::Candlepin::Content, <span class='object_link'><a href="Glue/ElasticSearch/Repository.html" title="Glue::ElasticSearch::Repository (module)">Glue::ElasticSearch::Repository</a></span>, <span class='object_link'><a href="Glue/Pulp/Repo.html" title="Glue::Pulp::Repo (module)">Glue::Pulp::Repo</a></span></dd>
+      <dd class="r2"><span class='object_link'><a href="AsyncOrchestration.html" title="AsyncOrchestration (module)">AsyncOrchestration</a></span>, Authorization::Repository, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, Glue::Candlepin::Content, <span class='object_link'><a href="Glue/ElasticSearch/Repository.html" title="Glue::ElasticSearch::Repository (module)">Glue::ElasticSearch::Repository</a></span>, <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span>, <span class='object_link'><a href="Glue/Pulp/Repo.html" title="Glue::Pulp::Repo (module)">Glue::Pulp::Repo</a></span></dd>
       
     
   
@@ -746,6 +746,29 @@ have received a copy of GPLv2 along with this software; if not, see
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#file_type-class_method" title="file_type (class method)">+ (Array&lt;Repository&gt;) <strong>file_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An array of Repositories that are file type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#ids_only-class_method" title="ids_only (class method)">+ (Object) <strong>ids_only</strong> </a>
     
 
@@ -898,6 +921,29 @@ have received a copy of GPLv2 along with this software; if not, see
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yum_type-class_method" title="yum_type (class method)">+ (Array&lt;Repository&gt;) <strong>yum_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>An array of Repositories that are yum type.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
     <h2>
@@ -1043,6 +1089,28 @@ have received a copy of GPLv2 along with this software; if not, see
   <span class="summary_signature">
     
       <a href="#custom%3F-instance_method" title="#custom? (instance method)">- (Boolean) <strong>custom?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_event-instance_method" title="#destroy_event (instance method)">- (Object) <strong>destroy_event</strong> </a>
     
 
     
@@ -1428,6 +1496,17 @@ equivalent of repo.</p>
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Glue/Event.html#create_event-instance_method" title="Glue::Event#create_event (method)">#create_event</a></span>, <span class='object_link'><a href="Glue/Event.html#included-class_method" title="Glue::Event.included (method)">included</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger-class_method" title="Glue::Event.trigger (method)">trigger</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_create_event-instance_method" title="Glue::Event#trigger_create_event (method)">#trigger_create_event</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_destroy_event-instance_method" title="Glue::Event#trigger_destroy_event (method)">#trigger_destroy_event</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Glue.html#included-class_method" title="Glue.included (method)">included</a></span>, <span class='object_link'><a href="Glue.html#logger-class_method" title="Glue.logger (method)">logger</a></span></p>
@@ -1498,10 +1577,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-538</pre>
+540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 538</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 540</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>arch</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                    <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>noarch</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1548,10 +1627,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-544</pre>
+546</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 544</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 546</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>content_type</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>            <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yum</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>    <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1598,10 +1677,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-535</pre>
+537</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 535</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 537</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cp_label</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1648,10 +1727,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-530</pre>
+532</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 530</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 532</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                                    <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1698,10 +1777,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-528</pre>
+530</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 528</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 530</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_boolean'>boolean</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>enabled</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                 <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -1748,10 +1827,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-542</pre>
+544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 542</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 544</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>feed</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1798,10 +1877,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-539</pre>
+541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 539</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 541</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                                         <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -1848,10 +1927,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-532</pre>
+534</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 532</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 534</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_integer'>integer</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>major</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1898,10 +1977,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-533</pre>
+535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 533</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 535</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>minor</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1948,10 +2027,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-526</pre>
+528</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 526</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 528</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -1998,10 +2077,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-541</pre>
+543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 541</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 543</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>relative_path</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                                 <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -2048,10 +2127,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-543</pre>
+545</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 543</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 545</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_boolean'>boolean</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unprotected</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>             <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>    <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -2098,10 +2177,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-531</pre>
+533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 531</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 533</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                                    <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -2131,26 +2210,44 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-190
-191
-192
-193
-194
-195
-196
-197
 198
 199
 200
 201
 202
-203</pre>
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clone_repo_path'>clone_repo_path</span><span class='lparen'>(</span><span class='id identifier rubyid_repo'>repo</span><span class='comma'>,</span> <span class='id identifier rubyid_environment'>environment</span><span class='comma'>,</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='comma'>,</span> <span class='id identifier rubyid_for_cp'>for_cp</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_org'>org</span><span class='comma'>,</span> <span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_content_path'>content_path</span> <span class='op'>=</span> <span class='id identifier rubyid_repo'>repo</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
+
+  <span class='comment'># If the repo is part of a composite definition, strip the
+</span>  <span class='comment'># component content view name from the content path. That
+</span>  <span class='comment'># name is not needed, since the composite view name will be
+</span>  <span class='comment'># included.
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='period'>.</span><span class='id identifier rubyid_content_view_definition'>content_view_definition</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:composite?</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_content_view_label'>content_view_label</span><span class='comma'>,</span> <span class='id identifier rubyid_content_path'>content_path</span> <span class='op'>=</span> <span class='id identifier rubyid_content_path'>content_path</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
   <span class='kw'>if</span> <span class='id identifier rubyid_for_cp'>for_cp</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_content_path'>content_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='id identifier rubyid_content_view'>content_view</span><span class='period'>.</span><span class='id identifier rubyid_default?'>default?</span> <span class='op'>||</span> <span class='op'>!</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span>
@@ -2213,12 +2310,68 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-56</pre>
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 61</span>
 
 <span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:enabled</span><span class='comma'>,</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:enabled</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="file_type-class_method">
+  
+    + (<tt>Array&lt;<span class='object_link'><a href="" title="Repository (class)">Repository</a></span>&gt;</tt>) <strong>file_type</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>An array of Repositories that are file type. <strong>Active Record Scope</strong></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="" title="Repository (class)">Repository</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>http://api.rubyonrails.org/classes/ActiveRecord/NamedScope/ClassMethods.html</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 66</span>
+
+<span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:file_type</span><span class='comma'>,</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:content_type</span><span class='op'>=&gt;</span><span class='const'>FILE_TYPE</span><span class='rparen'>)</span></pre>
     </td>
   </tr>
 </table>
@@ -2239,12 +2392,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-60
-61
-62</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ids_only'>ids_only</span>
   <span class='id identifier rubyid_with_exclusive_scope'>with_exclusive_scope</span><span class='lbrace'>{</span><span class='id identifier rubyid_pluck'>pluck</span><span class='lparen'>(</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rbrace'>}</span>
@@ -2269,12 +2422,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-92
-93
-94</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_in_content_views'>in_content_views</span><span class='lparen'>(</span><span class='id identifier rubyid_views'>views</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:content_view_version</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content_view_versions.content_view_id</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_views'>views</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -2329,11 +2482,11 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-57
-58</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 62</span>
 
 <span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:in_default_view</span><span class='comma'>,</span> <span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:content_view_version</span> <span class='op'>=&gt;</span> <span class='symbol'>:content_view</span><span class='rparen'>)</span><span class='period'>.</span>
 <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>content_views.default</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span></pre>
@@ -2357,12 +2510,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-84
-85
-86</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_in_environment'>in_environment</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:environment_product</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_products</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:environment_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_env'>env</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2387,13 +2540,13 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-100
-101
-102
-103</pre>
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_in_environments_products'>in_environments_products</span><span class='lparen'>(</span><span class='id identifier rubyid_env_ids'>env_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_product_ids'>product_ids</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:environment_product</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:environment_products</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:environment_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_env_ids'>env_ids</span><span class='comma'>,</span> <span class='symbol'>:product_id</span><span class='op'>=&gt;</span><span class='id identifier rubyid_product_ids'>product_ids</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2419,12 +2572,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_in_product'>in_product</span><span class='lparen'>(</span><span class='id identifier rubyid_product'>product</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:environment_product</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environment_products.product_id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
@@ -2449,16 +2602,72 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-205
-206
-207</pre>
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_repo_id'>repo_id</span><span class='lparen'>(</span><span class='id identifier rubyid_product_label'>product_label</span><span class='comma'>,</span> <span class='id identifier rubyid_repo_label'>repo_label</span><span class='comma'>,</span> <span class='id identifier rubyid_env_label'>env_label</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_label'>organization_label</span><span class='comma'>,</span> <span class='id identifier rubyid_view_label'>view_label</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_organization_label'>organization_label</span><span class='comma'>,</span> <span class='id identifier rubyid_env_label'>env_label</span><span class='comma'>,</span> <span class='id identifier rubyid_view_label'>view_label</span><span class='comma'>,</span> <span class='id identifier rubyid_product_label'>product_label</span><span class='comma'>,</span> <span class='id identifier rubyid_repo_label'>repo_label</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^-\w]</span><span class='regexp_end'>/</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="yum_type-class_method">
+  
+    + (<tt>Array&lt;<span class='object_link'><a href="" title="Repository (class)">Repository</a></span>&gt;</tt>) <strong>yum_type</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>An array of Repositories that are yum type. <strong>Active Record Scope</strong></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="" title="Repository (class)">Repository</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>http://api.rubyonrails.org/classes/ActiveRecord/NamedScope/ClassMethods.html</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 65</span>
+
+<span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:yum_type</span><span class='comma'>,</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:content_type</span><span class='op'>=&gt;</span><span class='const'>YUM_TYPE</span><span class='rparen'>)</span></pre>
     </td>
   </tr>
 </table>
@@ -2485,13 +2694,13 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-177
-178
-179
-180</pre>
+185
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after_sync'>after_sync</span> <span class='id identifier rubyid_pulp_task_id'>pulp_task_id</span>
   <span class='comment'>#self.handle_sync_complete_task(pulp_task_id)
@@ -2517,16 +2726,16 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-182
-183
-184
-185
-186
-187
-188</pre>
+190
+191
+192
+193
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>super</span>
@@ -2584,10 +2793,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-33</pre>
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 38</span>
 
 <span class='id identifier rubyid_has_and_belongs_to_many'>has_and_belongs_to_many</span> <span class='symbol'>:changesets</span></pre>
     </td>
@@ -2610,13 +2819,13 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-209
-210
-211
-212</pre>
+226
+227
+228
+229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clone_id'>clone_id</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='rparen'>)</span>
   <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_repo_id'>repo_id</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span>
@@ -2642,13 +2851,13 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-139
-140
-141
-142</pre>
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clones'>clones</span>
   <span class='id identifier rubyid_lib_id'>lib_id</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_library_instance_id'>library_instance_id</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
@@ -2674,12 +2883,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content_view'>content_view</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content_view_version'>content_view_version</span><span class='period'>.</span><span class='id identifier rubyid_content_view'>content_view</span>
@@ -2733,10 +2942,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-34</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 39</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_definition_repositories</span></pre>
     </td>
@@ -2788,10 +2997,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-35</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 40</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_definitions</span><span class='comma'>,</span> <span class='symbol'>:through</span> <span class='op'>=&gt;</span> <span class='symbol'>:content_view_definition_repositories</span></pre>
     </td>
@@ -2843,10 +3052,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-37</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 42</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:content_view_version</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span><span class='op'>=&gt;</span><span class='symbol'>:repositories</span></pre>
     </td>
@@ -2869,23 +3078,6 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
 231
 232
 233
@@ -2907,10 +3099,27 @@ equivalent of repo.</p>
 249
 250
 251
-252</pre>
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_clone'>create_clone</span><span class='lparen'>(</span><span class='id identifier rubyid_to_env'>to_env</span><span class='comma'>,</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_content_view'>content_view</span> <span class='op'>=</span> <span class='id identifier rubyid_to_env'>to_env</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view'>default_content_view</span> <span class='kw'>if</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -2993,15 +3202,45 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-135
-136
-137</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_custom?'>custom?</span>
   <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_redhat?'>redhat?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_event-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroy_event</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_event'>destroy_event</span>
+  <span class='const'>Katello</span><span class='op'>::</span><span class='const'>Actions</span><span class='op'>::</span><span class='const'>RepositoryDestroy</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -3023,12 +3262,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-72
-73
-74</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_environment'>environment</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment_product'>environment_product</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span>
@@ -3053,12 +3292,12 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-117
-118
-119</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_environment_id'>environment_id</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
@@ -3112,10 +3351,10 @@ equivalent of repo.</p>
       <pre class="lines">
 
 
-30</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 35</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:environment_product</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:repositories</span></pre>
     </td>
@@ -3149,14 +3388,14 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-257
-258
-259
-260
-261</pre>
+274
+275
+276
+277
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 274</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_environmental_instances'>environmental_instances</span><span class='lparen'>(</span><span class='id identifier rubyid_view'>view</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_repo'>repo</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_library_instance'>library_instance</span> <span class='op'>||</span> <span class='kw'>self</span>
@@ -3212,10 +3451,10 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-36</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 41</span>
 
 <span class='id identifier rubyid_has_and_belongs_to_many'>has_and_belongs_to_many</span> <span class='symbol'>:filters</span></pre>
     </td>
@@ -3238,20 +3477,20 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-157
-158
-159
-160
-161
-162
-163
-164
 165
 166
-167</pre>
+167
+168
+169
+170
+171
+172
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_clone'>get_clone</span> <span class='id identifier rubyid_env'>env</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content_view'>content_view</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span>
@@ -3313,10 +3552,10 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-31</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 36</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:gpg_key</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:repositories</span></pre>
     </td>
@@ -3339,16 +3578,16 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-169
-170
-171
-172
-173
-174
-175</pre>
+177
+178
+179
+180
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gpg_key_name='>gpg_key_name=</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -3399,12 +3638,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_default_view?'>in_default_view?</span>
   <span class='id identifier rubyid_content_view_version'>content_view_version</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_content_view_version'>content_view_version</span><span class='period'>.</span><span class='id identifier rubyid_has_default_content_view?'>has_default_content_view?</span>
@@ -3452,12 +3691,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-145
-146
-147</pre>
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_cloned_in?'>is_cloned_in?</span> <span class='id identifier rubyid_env'>env</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_clone'>get_clone</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -3511,10 +3750,10 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-32</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 37</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:library_instance</span><span class='comma'>,</span> <span class='symbol'>:class_name</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Repository</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -3537,12 +3776,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-76
-77
-78</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_organization'>organization</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
@@ -3567,14 +3806,14 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-111
-112
-113
-114
-115</pre>
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_other_repos_with_same_content'>other_repos_with_same_content</span>
   <span class='id identifier rubyid_list'>list</span> <span class='op'>=</span> <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:content_id</span><span class='op'>=&gt;</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content_id'>content_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
@@ -3601,14 +3840,14 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-105
-106
-107
-108
-109</pre>
+113
+114
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_other_repos_with_same_product_and_content'>other_repos_with_same_product_and_content</span>
   <span class='id identifier rubyid_list'>list</span> <span class='op'>=</span> <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_in_product'>in_product</span><span class='lparen'>(</span><span class='const'>Product</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:content_id</span><span class='op'>=&gt;</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content_id'>content_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
@@ -3635,12 +3874,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-64
-65
-66</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product'>product</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment_product'>environment_product</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span>
@@ -3665,12 +3904,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_id'>product_id</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment_product'>environment_product</span><span class='period'>.</span><span class='id identifier rubyid_product_id'>product_id</span>
@@ -3717,16 +3956,16 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155</pre>
+157
+158
+159
+160
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_promoted?'>promoted?</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_library?'>library?</span>
@@ -3777,12 +4016,12 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-131
-132
-133</pre>
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redhat?'>redhat?</span>
   <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_redhat?'>redhat?</span>
@@ -3807,18 +4046,18 @@ equivalent of repo</p>
       <pre class="lines">
 
 
-121
-122
-123
-124
-125
-126
-127
-128
-129</pre>
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'app/models/repository.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yum_gpg_key_url'>yum_gpg_key_url</span>
   <span class='comment'># if the repo has a gpg key return a url to access it
@@ -3839,7 +4078,7 @@ equivalent of repo</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:23 2013 by
+  Generated on Thu Jun  6 11:24:23 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

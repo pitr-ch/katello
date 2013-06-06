@@ -639,29 +639,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#queue_import_manifest-instance_method" title="#queue_import_manifest (instance method)">- (Object) <strong>queue_import_manifest</strong>(zip_file_path, options) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#queue_refresh_manifest-instance_method" title="#queue_refresh_manifest (instance method)">- (Object) <strong>queue_refresh_manifest</strong>(upstream, options) </a>
+      <a href="#queue_import_manifest-instance_method" title="#queue_import_manifest (instance method)">- (Object) <strong>queue_import_manifest</strong>(options) </a>
     
 
     
@@ -684,6 +662,28 @@
   <span class="summary_signature">
     
       <a href="#refresh_error_message-instance_method" title="#refresh_error_message (instance method)">- (Object) <strong>refresh_error_message</strong>(display_message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#refresh_existing_products-instance_method" title="#refresh_existing_products (instance method)">- (Object) <strong>refresh_existing_products</strong> </a>
     
 
     
@@ -947,6 +947,16 @@
       <pre class="lines">
 
 
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
 158
 159
 160
@@ -957,20 +967,10 @@
 165
 166
 167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178</pre>
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_custom_product'>add_custom_product</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_gpg'>gpg</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'># URL isn't used yet until we can do custom repo discovery in pulp
@@ -1013,15 +1013,15 @@
       <pre class="lines">
 
 
-151
-152
-153
-154
-155
-156</pre>
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cancel_sync'>cancel_sync</span>
   <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cancelling synchronization of provider </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1049,22 +1049,22 @@
       <pre class="lines">
 
 
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
 228
 229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240</pre>
+230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_del_owner_import'>del_owner_import</span>
   <span class='comment'># This method will delete a manifest that has been imported.  Since it is not possible
@@ -1099,21 +1099,21 @@
       <pre class="lines">
 
 
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
 185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196</pre>
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_del_products'>del_products</span>
   <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Deleting all products for provider: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1147,6 +1147,9 @@
       <pre class="lines">
 
 
+36
+37
+38
 39
 40
 41
@@ -1154,32 +1157,21 @@
 43
 44
 45
-46
-47
-48
-49
-50
-51
-52
-53</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_manifest'>delete_manifest</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_options'>options</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_manifest'>delete_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:async</span><span class='comma'>,</span> <span class='symbol'>:notify</span><span class='rparen'>)</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span>
-
-  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>delete manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_delete_manifest'>queue_delete_manifest</span> <span class='id identifier rubyid_options'>options</span>
-          <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DEBUG ASYNC </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_task_status'>task_status</span><span class='period'>.</span><span class='id identifier rubyid_task_type'>task_type</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
-        <span class='kw'>else</span>
-          <span class='id identifier rubyid_exec_delete_manifest'>exec_delete_manifest</span>
-        <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>delete manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_delete_manifest'>queue_delete_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_exec_delete_manifest'>exec_delete_manifest</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1201,12 +1193,12 @@
       <pre class="lines">
 
 
-414
-415
-416</pre>
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 414</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy_products_orchestration'>destroy_products_orchestration</span>
   <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>delete products for provider: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:del_products</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1241,50 +1233,50 @@
       <pre class="lines">
 
 
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
 496
 497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536</pre>
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 496</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 458</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_manifest_message'>display_manifest_message</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
 
@@ -1347,13 +1339,13 @@
       <pre class="lines">
 
 
-434
-435
-436
-437</pre>
+396
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 434</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 396</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exec_delete_manifest'>exec_delete_manifest</span>
   <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Owner</span><span class='period'>.</span><span class='id identifier rubyid_destroy_imports'>destroy_imports</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='kw'>true</span>
@@ -1389,12 +1381,12 @@
       <pre class="lines">
 
 
-247
-248
-249</pre>
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 247</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failed_products'>failed_products</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_repositories_cdn_import_failed'>repositories_cdn_import_failed</span>
@@ -1429,12 +1421,12 @@
       <pre class="lines">
 
 
-252
-253
-254</pre>
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 252</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failed_products_status'>failed_products_status</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_failed_products'>failed_products</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>?</span> <span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%d products may have missing repositories</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>%</span> <span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='op'>:</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>OK</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1459,13 +1451,13 @@
       <pre class="lines">
 
 
-566
-567
-568
-569</pre>
+528
+529
+530
+531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 566</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 528</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_all_content_ids'>get_all_content_ids</span>
   <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Content</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>id</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1491,12 +1483,12 @@
       <pre class="lines">
 
 
-557
-558
-559</pre>
+519
+520
+521</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 557</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 519</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_all_product_ids'>get_all_product_ids</span>
   <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Product</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>id</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1521,13 +1513,13 @@
       <pre class="lines">
 
 
-561
-562
-563
-564</pre>
+523
+524
+525
+526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 561</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 523</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_assigned_content_ids'>get_assigned_content_ids</span>
   <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Product</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>productContent</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_content'>content</span><span class='op'>|</span> <span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>content</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>id</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1553,16 +1545,16 @@
       <pre class="lines">
 
 
-418
-419
-420
-421
-422
-423
-424</pre>
+380
+381
+382
+383
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 418</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 380</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_import_error_message'>import_error_message</span> <span class='id identifier rubyid_display_message'>display_message</span>
   <span class='id identifier rubyid_error_texts'>error_texts</span> <span class='op'>=</span> <span class='lbracket'>[</span>
@@ -1601,27 +1593,21 @@
 31
 32
 33
-34
-35
-36
-37</pre>
+34</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_import_manifest'>import_manifest</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_options'>options</span>
-  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:force</span><span class='comma'>,</span> <span class='symbol'>:async</span><span class='comma'>,</span> <span class='symbol'>:notify</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_import_manifest'>import_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span> <span class='comma'>,</span> <span class='symbol'>:zip_file_path</span><span class='op'>=&gt;</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:force</span><span class='comma'>,</span> <span class='symbol'>:async</span><span class='comma'>,</span> <span class='symbol'>:notify</span><span class='comma'>,</span> <span class='symbol'>:zip_file_path</span><span class='rparen'>)</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span>
-
-  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
-        <span class='kw'>else</span>
-          <span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
-        <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1643,6 +1629,44 @@
       <pre class="lines">
 
 
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
 358
 359
 360
@@ -1659,48 +1683,10 @@
 371
 372
 373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412</pre>
+374</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 358</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 320</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_import_products_from_cp'>import_products_from_cp</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -1777,34 +1763,34 @@
       <pre class="lines">
 
 
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463</pre>
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 439</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 401</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index_subscriptions'>index_subscriptions</span>
   <span class='comment'># Raw candlepin pools
@@ -1851,18 +1837,18 @@
       <pre class="lines">
 
 
-141
-142
-143
-144
-145
-146
-147
-148
-149</pre>
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_sync'>last_sync</span>
   <span class='id identifier rubyid_sync_times'>sync_times</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1903,14 +1889,14 @@
       <pre class="lines">
 
 
-82
-83
-84
-85
-86</pre>
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_latest_sync_statuses'>latest_sync_statuses</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
@@ -1952,21 +1938,21 @@ model)</p>
       <pre class="lines">
 
 
-544
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555</pre>
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 544</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 506</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marketing_to_engineering_product_ids_mapping'>marketing_to_engineering_product_ids_mapping</span>
   <span class='id identifier rubyid_mapping'>mapping</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -2000,12 +1986,12 @@ model)</p>
       <pre class="lines">
 
 
-198
-199
-200</pre>
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_owner_import'>owner_import</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
   <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Owner</span><span class='period'>.</span><span class='id identifier rubyid_import'>import</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
@@ -2030,12 +2016,12 @@ model)</p>
       <pre class="lines">
 
 
-242
-243
-244</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_owner_imports'>owner_imports</span>
   <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>Owner</span><span class='period'>.</span><span class='id identifier rubyid_imports'>imports</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span>
@@ -2060,6 +2046,16 @@ model)</p>
       <pre class="lines">
 
 
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
 202
 203
 204
@@ -2074,20 +2070,10 @@ model)</p>
 213
 214
 215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226</pre>
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_owner_upstream_export'>owner_upstream_export</span> <span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
 
@@ -2134,32 +2120,32 @@ model)</p>
       <pre class="lines">
 
 
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491</pre>
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 469</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 431</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_queue_delete_manifest'>queue_delete_manifest</span> <span class='id identifier rubyid_options'>options</span>
   <span class='id identifier rubyid_output'>output</span>        <span class='op'>=</span> <span class='const'>StringIO</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -2192,7 +2178,7 @@ model)</p>
       <div class="method_details ">
   <h3 class="signature " id="queue_import_manifest-instance_method">
   
-    - (<tt>Object</tt>) <strong>queue_import_manifest</strong>(zip_file_path, options) 
+    - (<tt>Object</tt>) <strong>queue_import_manifest</strong>(options) 
   
 
   
@@ -2204,6 +2190,15 @@ model)</p>
       <pre class="lines">
 
 
+247
+248
+249
+250
+251
+252
+253
+254
+255
 256
 257
 258
@@ -2250,78 +2245,8 @@ model)</p>
 299
 300
 301
-302</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 256</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
-  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_appenders'>appenders</span><span class='period'>.</span><span class='id identifier rubyid_string_io'>string_io</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_import_appender</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_import_logger'>import_logger</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_import_logger</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_import_logger'>import_logger</span><span class='period'>.</span><span class='id identifier rubyid_additive'>additive</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='id identifier rubyid_import_logger'>import_logger</span><span class='period'>.</span><span class='id identifier rubyid_add_appenders'>add_appenders</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='symbol'>:import_logger</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_import_logger'>import_logger</span><span class='rparen'>)</span>
-  <span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_import_logger'>import_logger</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Importing manifest for provider </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
-
-  <span class='kw'>begin</span>
-    <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import manifest </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='rbrace'>}</span><span class='tstring_content'> for owner: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>3</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:owner_import</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
-                     <span class='symbol'>:action_rollback</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:del_owner_import</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import of products in manifest </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:import_products_from_cp</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
-
-    <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:notify</span><span class='rbracket'>]</span>
-      <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
-                  <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Subscription manifest uploaded successfully for provider '%s'. </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please enable the repositories you want to sync by selecting 'Enable Repositories' and </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>selecting individual repositories to be enabled.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-                <span class='kw'>else</span>
-                  <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Subscription manifest uploaded successfully for provider '%s'.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-                <span class='kw'>end</span>
-      <span class='id identifier rubyid_values'>values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
-      <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_failed_products'>failed_products</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
-        <span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>There are %d products having repositories that could not be created.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_builder'>builder</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>ActionView</span><span class='op'>::</span><span class='const'>Helpers</span><span class='op'>::</span><span class='const'>UrlHelper</span><span class='comma'>,</span> <span class='const'>ActionView</span><span class='op'>::</span><span class='const'>Helpers</span><span class='op'>::</span><span class='const'>TagHelper</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_path'>path</span>    <span class='op'>=</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_url_prefix'>url_prefix</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_routes'>routes</span><span class='period'>.</span><span class='id identifier rubyid_url_helpers'>url_helpers</span><span class='period'>.</span><span class='id identifier rubyid_refresh_products_providers_path'>refresh_products_providers_path</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_link'>link</span>    <span class='op'>=</span> <span class='id identifier rubyid_builder'>builder</span><span class='period'>.</span><span class='id identifier rubyid_link_to'>link_to</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>repository refresh</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-                                  <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span>
-                                  <span class='symbol'>:method</span> <span class='op'>=&gt;</span> <span class='symbol'>:put</span><span class='comma'>,</span>
-                                  <span class='symbol'>:remote</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You can run %s action to fix this. Note that it can take some time to complete.</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_link'>link</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_failed_products'>failed_products</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-      <span class='kw'>end</span>
-      <span class='const'>Notify</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='id identifier rubyid_message'>message</span> <span class='op'>%</span> <span class='id identifier rubyid_values'>values</span><span class='comma'>,</span>
-                     <span class='symbol'>:request_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>providers__update_redhat_provider</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span>
-                     <span class='symbol'>:details</span>      <span class='op'>=&gt;</span> <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>
-    <span class='kw'>end</span>
-  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_error'>error</span>
-    <span class='id identifier rubyid_display_manifest_message'>display_manifest_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>import</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_error'>error</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="queue_refresh_manifest-instance_method">
-  
-    - (<tt>Object</tt>) <strong>queue_refresh_manifest</strong>(upstream, options) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+302
+303
 304
 305
 306
@@ -2332,74 +2257,47 @@ model)</p>
 311
 312
 313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356</pre>
+314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 304</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 247</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_queue_refresh_manifest'>queue_refresh_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_appenders'>appenders</span><span class='period'>.</span><span class='id identifier rubyid_string_io'>string_io</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_refresh_appender</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_refresh_logger'>refresh_logger</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_refresh_logger</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_refresh_logger'>refresh_logger</span><span class='period'>.</span><span class='id identifier rubyid_additive'>additive</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='id identifier rubyid_refresh_logger'>refresh_logger</span><span class='period'>.</span><span class='id identifier rubyid_add_appenders'>add_appenders</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>zip_file_path or upstream must be specified</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:zip_file_path</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:upstream</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-  <span class='id identifier rubyid_zip_file_path'>zip_file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rand'>rand</span><span class='rbrace'>}</span><span class='tstring_content'>.zip</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'>#if a manifest has already been imported, we need to update the products
+</span>  <span class='id identifier rubyid_manifest_update'>manifest_update</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='comment'>#are we refreshing from upstream?
+</span>  <span class='id identifier rubyid_manifest_refresh'>manifest_refresh</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>zip_file_path</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='symbol'>:refresh_logger</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_refresh_logger'>refresh_logger</span><span class='rparen'>)</span>
-  <span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_refresh_logger'>refresh_logger</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Refreshing manifest for provider </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_appenders'>appenders</span><span class='period'>.</span><span class='id identifier rubyid_string_io'>string_io</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_import_appender</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_import_logger'>import_logger</span> <span class='op'>=</span> <span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>manifest_import_logger</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_import_logger'>import_logger</span><span class='period'>.</span><span class='id identifier rubyid_additive'>additive</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_import_logger'>import_logger</span><span class='period'>.</span><span class='id identifier rubyid_add_appenders'>add_appenders</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='symbol'>:import_logger</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_import_logger'>import_logger</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='comma'>,</span> <span class='id identifier rubyid_import_logger'>import_logger</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Importing manifest for provider </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
 
   <span class='kw'>begin</span>
-    <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>export upstream manifest for owner: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>3</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:owner_upstream_export</span><span class='comma'>,</span> <span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
-                     <span class='symbol'>:action_rollback</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_manifest_refresh'>manifest_refresh</span>
+      <span class='id identifier rubyid_zip_file_path'>zip_file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rand'>rand</span><span class='rbrace'>}</span><span class='tstring_content'>.zip</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_upstream'>upstream</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:upstream</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>export upstream manifest for owner: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                               <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:owner_upstream_export</span><span class='comma'>,</span> <span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
+                               <span class='symbol'>:action_rollback</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_zip_file_path'>zip_file_path</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:zip_file_path</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+
     <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import manifest </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='rbrace'>}</span><span class='tstring_content'> for owner: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:owner_import</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
+                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>3</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:owner_import</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
                      <span class='symbol'>:action_rollback</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:del_owner_import</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>import of products in manifest </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_zip_file_path'>zip_file_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>7</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:import_products_from_cp</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='comma'>,</span>
-                     <span class='symbol'>:action_rollback</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:import_products_from_cp</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>refresh product repos</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                     <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>6</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:refresh_existing_products</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_manifest_update'>manifest_update</span> <span class='op'>&amp;&amp;</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_use_pulp'>use_pulp</span>
+
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:notify</span><span class='rbracket'>]</span>
@@ -2428,7 +2326,7 @@ model)</p>
                      <span class='symbol'>:details</span>      <span class='op'>=&gt;</span> <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>
     <span class='kw'>end</span>
   <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_error'>error</span>
-    <span class='id identifier rubyid_display_manifest_message'>display_manifest_message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>refresh</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_display_manifest_message'>display_manifest_message</span><span class='lparen'>(</span><span class='id identifier rubyid_manifest_refresh'>manifest_refresh</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>refresh</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>import</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_error'>error</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -2452,16 +2350,16 @@ model)</p>
       <pre class="lines">
 
 
-426
-427
-428
-429
-430
-431
-432</pre>
+388
+389
+390
+391
+392
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh_error_message'>refresh_error_message</span> <span class='id identifier rubyid_display_message'>display_message</span>
   <span class='id identifier rubyid_error_texts'>error_texts</span> <span class='op'>=</span> <span class='lbracket'>[</span>
@@ -2469,6 +2367,36 @@ model)</p>
       <span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reason: %s</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>%</span> <span class='id identifier rubyid_display_message'>display_message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_display_message'>display_message</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span><span class='rparen'>)</span>
   <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
   <span class='id identifier rubyid_error_texts'>error_texts</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;br /&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="refresh_existing_products-instance_method">
+  
+    - (<tt>Object</tt>) <strong>refresh_existing_products</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+316
+317
+318</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 316</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_refresh_existing_products'>refresh_existing_products</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_update_repositories'>update_repositories</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2490,37 +2418,31 @@ model)</p>
       <pre class="lines">
 
 
+48
+49
+50
+51
+52
+53
+54
 55
 56
 57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh_manifest'>refresh_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_options'>options</span>
-  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:async</span><span class='comma'>,</span> <span class='symbol'>:notify</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:async</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='symbol'>:notify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:upstream</span><span class='op'>=&gt;</span><span class='id identifier rubyid_upstream'>upstream</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_assert_valid_keys'>assert_valid_keys</span><span class='lparen'>(</span><span class='symbol'>:async</span><span class='comma'>,</span> <span class='symbol'>:notify</span><span class='comma'>,</span> <span class='symbol'>:upstream</span><span class='rparen'>)</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span>
-
-  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>refresh manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_refresh_manifest'>queue_refresh_manifest</span> <span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
-          <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
-        <span class='kw'>else</span>
-          <span class='id identifier rubyid_queue_refresh_manifest'>queue_refresh_manifest</span> <span class='id identifier rubyid_upstream'>upstream</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span>
-        <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:async</span><span class='rbracket'>]</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='id identifier rubyid_async'>async</span><span class='lparen'>(</span><span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='comma'>,</span> <span class='symbol'>:task_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>refresh manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_queue_import_manifest'>queue_import_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2542,12 +2464,12 @@ model)</p>
       <pre class="lines">
 
 
-465
-466
-467</pre>
+427
+428
+429</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 465</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 427</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rollback_delete_manifest'>rollback_delete_manifest</span>
   <span class='comment'># Nothing to be done until implemented in katello where possible pulp recovery actions should be done(?)
@@ -2572,15 +2494,15 @@ model)</p>
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75</pre>
+60
+61
+62
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync'>sync</span>
   <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Syncing provider </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -2608,18 +2530,18 @@ model)</p>
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134
-135</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync_finish'>sync_finish</span>
   <span class='id identifier rubyid_finish_times'>finish_times</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -2650,12 +2572,12 @@ model)</p>
       <pre class="lines">
 
 
-137
-138
-139</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync_size'>sync_size</span>
   <span class='id identifier rubyid_size'>size</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_sync_status'>sync_status</span><span class='period'>.</span><span class='id identifier rubyid_progress'>progress</span><span class='period'>.</span><span class='id identifier rubyid_total_size'>total_size</span> <span class='rbrace'>}</span>
@@ -2680,18 +2602,18 @@ model)</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122
-123
-124
-125</pre>
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync_start'>sync_start</span>
   <span class='id identifier rubyid_start_times'>start_times</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -2722,12 +2644,12 @@ model)</p>
       <pre class="lines">
 
 
-113
-114
-115</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync_state'>sync_state</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sync_status'>sync_status</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span>
@@ -2762,6 +2684,16 @@ model)</p>
       <pre class="lines">
 
 
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
 89
 90
 91
@@ -2774,20 +2706,10 @@ model)</p>
 98
 99
 100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111</pre>
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sync_status'>sync_status</span>
   <span class='id identifier rubyid_statuses'>statuses</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_sync_status'>sync_status</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span>
@@ -2854,12 +2776,12 @@ model)</p>
       <pre class="lines">
 
 
-77
-78
-79</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synced?'>synced?</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_synced?'>synced?</span> <span class='rbrace'>}</span>
@@ -2884,13 +2806,13 @@ model)</p>
       <pre class="lines">
 
 
-180
-181
-182
-183</pre>
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/provider.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_url_to_host_and_path'>url_to_host_and_path</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
@@ -2906,7 +2828,7 @@ model)</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:09 2013 by
+  Generated on Thu Jun  6 11:24:09 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

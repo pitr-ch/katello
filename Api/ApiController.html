@@ -283,6 +283,30 @@ have received a copy of GPLv2 along with this software; if not, see
         <li class="protected ">
   <span class="summary_signature">
     
+      <a href="#request_from_rhsm%3F-instance_method" title="#request_from_rhsm? (instance method)">- (Boolean) <strong>request_from_rhsm?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>For situations where rhsm/subscirption-manager expect a bit
+different behaviour.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
       <a href="#require_user-instance_method" title="#require_user (instance method)">- (Object) <strong>require_user</strong> </a>
     
 
@@ -532,12 +556,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-76
-77
-78</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_resource'>get_resource</span>
   <span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span> <span class='symbol'>:@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resource_name'>resource_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>no resource loaded</span><span class='tstring_end'>'</span></span>
@@ -562,12 +586,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-80
-81
-82</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_resource_collection'>get_resource_collection</span>
   <span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span> <span class='symbol'>:@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resource_collection_name'>resource_collection_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>no resource collection loaded</span><span class='tstring_end'>'</span></span>
@@ -592,13 +616,13 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-63
-64
-65
-66</pre>
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_action'>process_action</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -654,7 +678,75 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request_from_katello_cli?'>request_from_katello_cli?</span>
-  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>User-Agent</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^katello-cli</span><span class='regexp_end'>/</span></span>
+  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_user_agent'>user_agent</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^katello-cli</span><span class='regexp_end'>/</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="request_from_rhsm?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>request_from_rhsm?</strong>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>For situations where rhsm/subscirption-manager expect a bit
+different behaviour.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_request_from_rhsm?'>request_from_rhsm?</span>
+  <span class='comment'># We should rather use &quot;x-python-rhsm-version&quot; that are sent in
+</span>  <span class='comment'># headers from subcription-manager, but this was added quite
+</span>  <span class='comment'># recently: https://bugzilla.redhat.com/show_bug.cgi?id=790481.
+</span>  <span class='comment'># For compatibility reasons we use the checking for katello_cli
+</span>  <span class='comment'># instead for now. Therefore this method should be used only
+</span>  <span class='comment'># rarely in cases where the expected behaviour differs between
+</span>  <span class='comment'># this two agents, without large impact on other possible clients.
+</span>  <span class='op'>!</span><span class='id identifier rubyid_request_from_katello_cli?'>request_from_katello_cli?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -730,12 +822,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-84
-85
-86</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resource_collection_name'>resource_collection_name</span>
   <span class='id identifier rubyid_controller_name'>controller_name</span>
@@ -760,12 +852,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-88
-89
-90</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resource_name'>resource_name</span>
   <span class='id identifier rubyid_controller_name'>controller_name</span><span class='period'>.</span><span class='id identifier rubyid_singularize'>singularize</span>
@@ -790,15 +882,15 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97</pre>
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond'>respond</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_method_name'>method_name</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>respond_for_</span><span class='tstring_end'>'</span></span><span class='op'>+</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:action</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -826,16 +918,16 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-68
-69
-70
-71
-72
-73
-74</pre>
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/api_controller.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_split_order'>split_order</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_order'>order</span>
@@ -890,7 +982,7 @@ have received a copy of GPLv2 along with this software; if not, see
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:34 2013 by
+  Generated on Thu Jun  6 11:24:35 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

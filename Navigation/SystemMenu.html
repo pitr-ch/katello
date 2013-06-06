@@ -481,7 +481,7 @@
     <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>systems top_level</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data-menu</span><span class='tstring_end'>&quot;</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>systems</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:items</span><span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_menu_systems_org_list'>menu_systems_org_list</span><span class='comma'>,</span> <span class='id identifier rubyid_menu_systems_environments_list'>menu_systems_environments_list</span><span class='rbracket'>]</span>
   <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_menu'>menu</span><span class='lbracket'>[</span><span class='symbol'>:items</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_menu_system_groups'>menu_system_groups</span> <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
+  <span class='id identifier rubyid_menu'>menu</span><span class='lbracket'>[</span><span class='symbol'>:items</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_menu_system_groups'>menu_system_groups</span>
   <span class='id identifier rubyid_menu'>menu</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -584,8 +584,6 @@
       <pre class="lines">
 
 
-186
-187
 188
 189
 190
@@ -599,10 +597,12 @@
 198
 199
 200
-201</pre>
+201
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/navigation/system_menu.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'app/lib/navigation/system_menu.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_system_groups_content_subnav'>system_groups_content_subnav</span>
   <span class='lbracket'>[</span>
@@ -664,35 +664,37 @@
 164
 165
 166
-167</pre>
+167
+168</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/lib/navigation/system_menu.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_system_groups_navigation'>system_groups_navigation</span>
-  <span class='lbracket'>[</span>
+  <span class='id identifier rubyid_menu'>menu</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+   <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_details</span><span class='comma'>,</span>
+     <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Details</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+     <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_edit_system_group_path'>edit_system_group_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
+     <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
+     <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link menu_parent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
+     <span class='symbol'>:items</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_system_groups_subnav'>system_groups_subnav</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='lbrace'>{</span>
       <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_groups_systems</span><span class='comma'>,</span>
       <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Systems</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_systems_system_group_path'>systems_system_group_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_content</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_menu'>menu</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_content</span><span class='comma'>,</span>
       <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_system_group_packages_path'>system_group_packages_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link menu_parent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:items</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_system_groups_content_subnav'>system_groups_content_subnav</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_details</span><span class='comma'>,</span>
-      <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Details</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_edit_system_group_path'>edit_system_group_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link menu_parent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:items</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_system_groups_subnav'>system_groups_subnav</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span>
+    <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
+  <span class='id identifier rubyid_menu'>menu</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -714,7 +716,6 @@
       <pre class="lines">
 
 
-169
 170
 171
 172
@@ -729,26 +730,29 @@
 181
 182
 183
-184</pre>
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/navigation/system_menu.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'app/lib/navigation/system_menu.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_system_groups_subnav'>system_groups_subnav</span>
-  <span class='lbracket'>[</span>
+  <span class='id identifier rubyid_menu'>menu</span> <span class='op'>=</span> <span class='lbracket'>[</span>
     <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_info</span><span class='comma'>,</span>
       <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>System Group Info</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_edit_system_group_path'>edit_system_group_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>third_level panel_link</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_events</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_menu'>menu</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:system_group_events</span><span class='comma'>,</span>
       <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Events History</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_system_group_events_path'>system_group_events_path</span><span class='lparen'>(</span><span class='ivar'>@group</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@group</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>third_level panel_link</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span>
+    <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
+  <span class='id identifier rubyid_menu'>menu</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -896,14 +900,14 @@
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@system</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link menu_parent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:items</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_systems_content_subnav'>systems_content_subnav</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span>
-  <span class='id identifier rubyid_menu'>menu</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:systems_system_groups</span><span class='comma'>,</span>
+    <span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='lbrace'>{</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='symbol'>:systems_system_groups</span><span class='comma'>,</span>
       <span class='symbol'>:name</span> <span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>System Groups</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:url</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='id identifier rubyid_system_groups_system_path'>system_groups_system_path</span><span class='lparen'>(</span><span class='ivar'>@system</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:if</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='ivar'>@system</span><span class='rbrace'>}</span><span class='comma'>,</span>
       <span class='symbol'>:options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:class</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>panel_link</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-    <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
+    <span class='rbrace'>}</span>
+  <span class='rbracket'>]</span>
   <span class='id identifier rubyid_menu'>menu</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -996,7 +1000,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:11 2013 by
+  Generated on Thu Jun  6 11:24:11 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

@@ -709,12 +709,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-263
-264
-265</pre>
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 263</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_controller_display_name'>controller_display_name</span>
   <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>organization</span><span class='tstring_end'>'</span></span>
@@ -739,7 +739,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-87
 88
 89
 90
@@ -778,10 +777,13 @@ have received a copy of GPLv2 along with this software; if not, see
 123
 124
 125
-126</pre>
+126
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='id identifier rubyid_org_label_assigned'>org_label_assigned</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -801,6 +803,8 @@ have received a copy of GPLv2 along with this software; if not, see
     <span class='ivar'>@new_env</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span> <span class='op'>=</span> <span class='ivar'>@organization</span>
     <span class='ivar'>@new_env</span><span class='period'>.</span><span class='id identifier rubyid_prior'>prior</span> <span class='op'>=</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span>
     <span class='ivar'>@new_env</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_env_params'>env_params</span><span class='lbracket'>[</span><span class='symbol'>:label</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+    <span class='ivar'>@new_env</span> <span class='op'>=</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_notify'>notify</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Organization '%s' was created.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>%</span> <span class='ivar'>@organization</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -843,17 +847,17 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-220
-221
-222
 223
 224
 225
 226
-227</pre>
+227
+228
+229
+230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_info'>default_info</span>
   <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_check_informable_type!'>check_informable_type!</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:informable_type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -883,12 +887,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-269
-270
-271</pre>
+272
+273
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 272</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_notify_options'>default_notify_options</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='symbol'>:organization</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span>
@@ -913,9 +917,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-168
-169
-170
 171
 172
 173
@@ -928,10 +929,13 @@ have received a copy of GPLv2 along with this software; if not, see
 180
 181
 182
-183</pre>
+183
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_found_errors'>found_errors</span><span class='op'>=</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_validate_destroy'>validate_destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_current_organization'>current_organization</span><span class='rparen'>)</span>
@@ -969,16 +973,16 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-212
-213
-214
 215
 216
 217
-218</pre>
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_download_debug_certificate'>download_debug_certificate</span>
   <span class='id identifier rubyid_pem'>pem</span> <span class='op'>=</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_debug_cert'>debug_cert</span>
@@ -1007,9 +1011,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-128
-129
-130
 131
 132
 133
@@ -1021,10 +1022,13 @@ have received a copy of GPLv2 along with this software; if not, see
 139
 140
 141
-142</pre>
+142
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
   <span class='ivar'>@org_label</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -1061,9 +1065,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-185
-186
-187
 188
 189
 190
@@ -1073,10 +1074,13 @@ have received a copy of GPLv2 along with this software; if not, see
 194
 195
 196
-197</pre>
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_environments_partial'>environments_partial</span>
   <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1088,7 +1092,7 @@ have received a copy of GPLv2 along with this software; if not, see
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_setup_environment_selector'>setup_environment_selector</span><span class='lparen'>(</span><span class='ivar'>@organization</span><span class='comma'>,</span> <span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='rparen'>)</span>
-  <span class='ivar'>@environment</span> <span class='op'>=</span> <span class='id identifier rubyid_first_env_in_path'>first_env_in_path</span><span class='lparen'>(</span><span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='ivar'>@organization</span><span class='rparen'>)</span>
+  <span class='ivar'>@environment</span> <span class='op'>=</span> <span class='id identifier rubyid_first_env_in_path'>first_env_in_path</span><span class='lparen'>(</span><span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='ivar'>@organization</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environments</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:locals</span><span class='op'>=&gt;</span><span class='lbrace'>{</span><span class='symbol'>:accessible_envs</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1111,9 +1115,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-199
-200
-201
 202
 203
 204
@@ -1122,10 +1123,13 @@ have received a copy of GPLv2 along with this software; if not, see
 207
 208
 209
-210</pre>
+210
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_events'>events</span>
   <span class='id identifier rubyid_entries'>entries</span> <span class='op'>=</span> <span class='ivar'>@organization</span><span class='period'>.</span><span class='id identifier rubyid_events'>events</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_e'>e</span><span class='op'>|</span>
@@ -1159,18 +1163,18 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-231
-232
-233
 234
 235
 236
 237
 238
-239</pre>
+239
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 234</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_organization'>find_organization</span>
   <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_find_by_label'>find_by_label</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -1201,12 +1205,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-241
-242
-243</pre>
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_organization_by_id'>find_organization_by_id</span>
   <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1231,14 +1235,14 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-72
 73
 74
 75
-76</pre>
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_items'>items</span>
   <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_without_deleting'>without_deleting</span><span class='period'>.</span><span class='id identifier rubyid_readable'>readable</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span>
@@ -1265,12 +1269,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_menu_definition'>menu_definition</span>
   <span class='lbrace'>{</span><span class='symbol'>:index</span> <span class='op'>=&gt;</span> <span class='symbol'>:admin_menu</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
@@ -1295,15 +1299,15 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-57
 58
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_param_rules'>param_rules</span>
   <span class='lbrace'>{</span>
@@ -1331,7 +1335,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-23
 24
 25
 26
@@ -1363,10 +1366,11 @@ have received a copy of GPLv2 along with this software; if not, see
 52
 53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rules'>rules</span>
   <span class='id identifier rubyid_index_test'>index_test</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_any_readable?'>any_readable?</span><span class='rbrace'>}</span>
@@ -1421,12 +1425,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-259
-260
-261</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 259</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_filter'>search_filter</span>
   <span class='ivar'>@filter</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:organization_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_current_organization'>current_organization</span><span class='rbrace'>}</span>
@@ -1451,12 +1455,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_section_id'>section_id</span>
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>operations</span><span class='tstring_end'>'</span></span>
@@ -1481,9 +1485,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-245
-246
-247
 248
 249
 250
@@ -1493,10 +1494,13 @@ have received a copy of GPLv2 along with this software; if not, see
 254
 255
 256
-257</pre>
+257
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 248</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup_options'>setup_options</span>
   <span class='ivar'>@panel_options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Organizations</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
@@ -1531,17 +1535,17 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-78
 79
 80
 81
 82
 83
 84
-85</pre>
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>new</span><span class='tstring_end'>'</span></span>
@@ -1571,9 +1575,6 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-144
-145
-146
 147
 148
 149
@@ -1593,10 +1594,13 @@ have received a copy of GPLv2 along with this software; if not, see
 163
 164
 165
-166</pre>
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/organizations_controller.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:organization</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -1631,7 +1635,7 @@ have received a copy of GPLv2 along with this software; if not, see
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:45 2013 by
+  Generated on Thu Jun  6 11:24:45 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

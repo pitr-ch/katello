@@ -877,6 +877,28 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_repositories-instance_method" title="#update_repositories (instance method)">- (Object) <strong>update_repositories</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -901,24 +923,24 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
 282
 283
 284
-285</pre>
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 271</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 282</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_repo'>add_repo</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_repo_type'>repo_type</span><span class='comma'>,</span> <span class='id identifier rubyid_unprotected'>unprotected</span><span class='op'>=</span><span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_gpg'>gpg</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_for_repo_conflicts'>check_for_repo_conflicts</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_label'>label</span><span class='rparen'>)</span>
@@ -991,23 +1013,23 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
 356
 357
-358</pre>
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 345</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 356</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check_for_repo_conflicts'>check_for_repo_conflicts</span><span class='lparen'>(</span><span class='id identifier rubyid_repo_name'>repo_name</span><span class='comma'>,</span> <span class='id identifier rubyid_repo_label'>repo_label</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_is_dupe'>is_dupe</span> <span class='op'>=</span>  <span class='const'>Repository</span><span class='period'>.</span><span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:environment_product</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span> <span class='symbol'>:name</span><span class='op'>=&gt;</span> <span class='id identifier rubyid_repo_name'>repo_name</span><span class='comma'>,</span>
@@ -1043,12 +1065,12 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-316
-317
-318</pre>
+327
+328
+329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 316</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 327</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_custom_repos_create_orchestration'>custom_repos_create_orchestration</span>
   <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>create pulp repositories for product: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>      <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:set_repos</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1073,15 +1095,15 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-308
-309
-310
-311
-312
-313</pre>
+319
+320
+321
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 308</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_del_repos'>del_repos</span>
   <span class='comment'>#destroy all repos in all environments
@@ -1109,12 +1131,12 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-332
-333
-334</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 332</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy_repos_orchestration'>destroy_repos_orchestration</span>
   <span class='id identifier rubyid_pre_queue'>pre_queue</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>delete pulp repositories for product: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:priority</span> <span class='op'>=&gt;</span> <span class='int'>6</span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:del_repos</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1715,16 +1737,16 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-337
-338
-339
-340
-341
-342
-343</pre>
+348
+349
+350
+351
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 337</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_promote_repos'>promote_repos</span> <span class='id identifier rubyid_repos'>repos</span><span class='comma'>,</span> <span class='id identifier rubyid_from_env'>from_env</span><span class='comma'>,</span> <span class='id identifier rubyid_to_env'>to_env</span>
   <span class='id identifier rubyid_async_tasks'>async_tasks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1877,12 +1899,12 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-294
-295
-296</pre>
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 294</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_repositories_cdn_import_failed!'>repositories_cdn_import_failed!</span>
   <span class='id identifier rubyid_set_repositories_cdn_import'>set_repositories_cdn_import</span> <span class='kw'>false</span>
@@ -1907,12 +1929,12 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-298
-299
-300</pre>
+309
+310
+311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 298</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 309</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_repositories_cdn_import_passed!'>repositories_cdn_import_passed!</span>
   <span class='id identifier rubyid_set_repositories_cdn_import'>set_repositories_cdn_import</span> <span class='kw'>true</span>
@@ -1937,20 +1959,20 @@ after upgrade to &gt;= 3.1.0 we could use #update_column.</p>
       <pre class="lines">
 
 
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330</pre>
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 320</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 331</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save_repos_orchestration'>save_repos_orchestration</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_orchestration_for'>orchestration_for</span>
@@ -1994,12 +2016,12 @@ after upgrade to &gt;= 3.1.0 we could use #update_column</p>
       <pre class="lines">
 
 
-304
-305
-306</pre>
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 304</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 315</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_repositories_cdn_import'>set_repositories_cdn_import</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span><span class='symbol'>:cdn_import_success</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -2024,15 +2046,15 @@ after upgrade to &gt;= 3.1.0 we could use #update_column</p>
       <pre class="lines">
 
 
-287
-288
-289
-290
-291
-292</pre>
+298
+299
+300
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 287</span>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup_sync_schedule'>setup_sync_schedule</span>
   <span class='id identifier rubyid_schedule'>schedule</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sync_plan'>sync_plan</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sync_plan'>sync_plan</span><span class='period'>.</span><span class='id identifier rubyid_schedule_format'>schedule_format</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>nil</span>
@@ -2365,12 +2387,56 @@ after upgrade to &gt;= 3.1.0 we could use #update_column</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="update_repositories-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_repositories</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/glue/pulp/repos.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_repositories'>update_repositories</span>
+  <span class='id identifier rubyid_org'>org</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span>
+  <span class='id identifier rubyid_repos'>repos</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_repos'>repos</span><span class='lparen'>(</span><span class='id identifier rubyid_org'>org</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_org'>org</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view'>default_content_view</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span>
+  <span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_certificate'>certificate</span>
+  <span class='id identifier rubyid_ca'>ca</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='const'>Resources</span><span class='op'>::</span><span class='const'>CDN</span><span class='op'>::</span><span class='const'>CdnResource</span><span class='period'>.</span><span class='id identifier rubyid_ca_file'>ca_file</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_repos'>repos</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_repo'>repo</span><span class='op'>|</span>
+    <span class='id identifier rubyid_repo'>repo</span><span class='period'>.</span><span class='id identifier rubyid_refresh_pulp_repo'>refresh_pulp_repo</span><span class='lparen'>(</span><span class='id identifier rubyid_ca'>ca</span><span class='comma'>,</span> <span class='id identifier rubyid_cert'>cert</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:15 2013 by
+  Generated on Thu Jun  6 11:24:15 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

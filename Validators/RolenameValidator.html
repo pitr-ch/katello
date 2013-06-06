@@ -173,16 +173,20 @@
 18
 19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/lib/validators/rolename_validator.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_each'>validate_each</span><span class='lparen'>(</span><span class='id identifier rubyid_record'>record</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span>
-    <span class='comment'>#max length is 20 more than the usernam,e because we add 20 random characters
-</span>    <span class='comment'>#  on the end for the self role
-</span>    <span class='const'>KatelloNameFormatValidator</span><span class='period'>.</span><span class='id identifier rubyid_validate_length'>validate_length</span><span class='lparen'>(</span><span class='id identifier rubyid_record'>record</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='int'>148</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='comment'># If role is self-role, no need to re-validate the rolename, since it is based on the username.
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_record'>record</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>UserOwnRole</span><span class='rparen'>)</span>
+     <span class='comment'># max length is 20 more than the username because we add 20 random characters
+</span>     <span class='comment'># on the end for the self role
+</span>    <span class='id identifier rubyid_record'>record</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='id identifier rubyid_attribute'>attribute</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>N_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cannot contain characters &gt;, &lt;, or /</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>&lt;|&gt;|/</span><span class='regexp_end'>}</span></span>
+    <span class='const'>KatelloNameFormatValidator</span><span class='period'>.</span><span class='id identifier rubyid_validate_length'>validate_length</span><span class='lparen'>(</span><span class='id identifier rubyid_record'>record</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='int'>148</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -195,7 +199,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:37 2013 by
+  Generated on Thu Jun  6 11:24:38 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

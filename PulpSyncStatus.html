@@ -124,6 +124,11 @@
   
     <dl class="constants">
       
+        <dt id="HISTORY_ERROR-constant" class="">HISTORY_ERROR =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>failed</span><span class='tstring_end'>'</span></span></pre></dd>
+      
         <dt id="SUCCESS-constant" class="">SUCCESS =
           
         </dt>
@@ -137,7 +142,7 @@
         <dt id="ERROR-constant" class="">ERROR =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failed</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span></pre></dd>
       
         <dt id="RUNNING-constant" class="">RUNNING =
           
@@ -181,6 +186,29 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_history-class_method" title="convert_history (class method)">+ (Object) <strong>convert_history</strong>(history_list) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Pulp history items are moved from the task item, but are different.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -357,7 +385,105 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="pulp_task-class_method">
+  <h3 class="signature first" id="convert_history-class_method">
+  
+    + (<tt>Object</tt>) <strong>convert_history</strong>(history_list) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Pulp history items are moved from the task item, but are different
+ and as a result we need to convert the structure</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>[Array]</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_convert_history'>convert_history</span><span class='lparen'>(</span><span class='id identifier rubyid_history_list'>history_list</span><span class='rparen'>)</span>
+  <span class='comment'>#history item attributes
+</span>  <span class='comment'>#[&quot;_id&quot;, &quot;_ns&quot;, &quot;added_count&quot;, &quot;completed&quot;, &quot;details&quot;, &quot;error_message&quot;, &quot;exception&quot;, &quot;id&quot;,
+</span>  <span class='comment'># &quot;importer_id&quot;, &quot;importer_type_id&quot;, &quot;removed_count&quot;, &quot;repo_id&quot;, &quot;result&quot;, &quot;started&quot;, &quot;summary&quot;,
+</span>  <span class='comment'># &quot;traceback&quot;, &quot;updated_count&quot;]
+</span>
+  <span class='comment'>#task status attributes
+</span>  <span class='comment'>#[&quot;task_group_id&quot;, &quot;exception&quot;, &quot;traceback&quot;, &quot;_href&quot;, &quot;task_id&quot;, &quot;call_request_tags&quot;, &quot;reasons&quot;,
+</span>  <span class='comment'># &quot;start_time&quot;, &quot;tags&quot;, &quot;state&quot;, &quot;finish_time&quot;, &quot;dependency_failures&quot;, &quot;schedule_id&quot;, &quot;progress&quot;,
+</span>  <span class='comment'># &quot;call_request_group_id&quot;, &quot;call_request_id&quot;, &quot;principal_login&quot;, &quot;response&quot;, &quot;result&quot;]
+</span>  <span class='id identifier rubyid_history_list'>history_list</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_history'>history</span><span class='op'>|</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_history'>history</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>result</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>ERROR</span> <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>==</span> <span class='const'>HISTORY_ERROR</span>
+    <span class='lbrace'>{</span>
+        <span class='symbol'>:state</span> <span class='op'>=&gt;</span>  <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+        <span class='symbol'>:finish_time</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_history'>history</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>completed</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='symbol'>:start_time</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_history'>history</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>started</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+    <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pulp_task-class_method">
   
     + (<tt>Object</tt>) <strong>pulp_task</strong>(pulp_status) 
   
@@ -371,14 +497,14 @@
       <pre class="lines">
 
 
-58
-59
 60
 61
-62</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_pulp_task'>pulp_task</span><span class='lparen'>(</span><span class='id identifier rubyid_pulp_status'>pulp_status</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_task_status'>task_status</span> <span class='op'>=</span> <span class='const'>PulpSyncStatus</span><span class='period'>.</span><span class='id identifier rubyid_find_by_uuid'>find_by_uuid</span><span class='lparen'>(</span><span class='id identifier rubyid_pulp_status'>pulp_status</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -411,12 +537,12 @@
       <pre class="lines">
 
 
-54
-55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after_refresh'>after_refresh</span>
   <span class='id identifier rubyid_correct_state'>correct_state</span>
@@ -441,15 +567,15 @@
       <pre class="lines">
 
 
-70
-71
 72
 73
 74
-75</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_correct_state'>correct_state</span>
   <span class='kw'>if</span> <span class='lbracket'>[</span><span class='const'>FINISHED</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_progress'>progress</span><span class='period'>.</span><span class='id identifier rubyid_error_details'>error_details</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
@@ -477,12 +603,12 @@
       <pre class="lines">
 
 
-50
-51
-52</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_progress'>progress</span>
   <span class='const'>PulpSyncProgress</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>progress</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -507,14 +633,14 @@
       <pre class="lines">
 
 
-64
-65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'app/models/pulp_sync_status.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_state'>update_state</span><span class='lparen'>(</span><span class='id identifier rubyid_pulp_status'>pulp_status</span><span class='rparen'>)</span>
   <span class='const'>PulpSyncStatus</span><span class='period'>.</span><span class='id identifier rubyid_dump_state'>dump_state</span><span class='lparen'>(</span><span class='id identifier rubyid_pulp_status'>pulp_status</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
@@ -531,7 +657,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:30 2013 by
+  Generated on Thu Jun  6 11:24:31 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

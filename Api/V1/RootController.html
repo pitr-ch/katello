@@ -237,7 +237,7 @@ have received a copy of GPLv2 along with this software; if not, see
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../ApiController.html" title="Api::ApiController (class)">ApiController</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../ApiController.html#add_candlepin_version_header-instance_method" title="Api::ApiController#add_candlepin_version_header (method)">#add_candlepin_version_header</a></span>, <span class='object_link'><a href="../ApiController.html#current_user-instance_method" title="Api::ApiController#current_user (method)">#current_user</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource-instance_method" title="Api::ApiController#get_resource (method)">#get_resource</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource_collection-instance_method" title="Api::ApiController#get_resource_collection (method)">#get_resource_collection</a></span>, <span class='object_link'><a href="../ApiController.html#process_action-instance_method" title="Api::ApiController#process_action (method)">#process_action</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_katello_cli%3F-instance_method" title="Api::ApiController#request_from_katello_cli? (method)">#request_from_katello_cli?</a></span>, <span class='object_link'><a href="../ApiController.html#require_user-instance_method" title="Api::ApiController#require_user (method)">#require_user</a></span>, <span class='object_link'><a href="../ApiController.html#resource_collection_name-instance_method" title="Api::ApiController#resource_collection_name (method)">#resource_collection_name</a></span>, <span class='object_link'><a href="../ApiController.html#resource_name-instance_method" title="Api::ApiController#resource_name (method)">#resource_name</a></span>, <span class='object_link'><a href="../ApiController.html#respond-instance_method" title="Api::ApiController#respond (method)">#respond</a></span>, <span class='object_link'><a href="../ApiController.html#split_order-instance_method" title="Api::ApiController#split_order (method)">#split_order</a></span>, <span class='object_link'><a href="../ApiController.html#verify_ldap-instance_method" title="Api::ApiController#verify_ldap (method)">#verify_ldap</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../ApiController.html#add_candlepin_version_header-instance_method" title="Api::ApiController#add_candlepin_version_header (method)">#add_candlepin_version_header</a></span>, <span class='object_link'><a href="../ApiController.html#current_user-instance_method" title="Api::ApiController#current_user (method)">#current_user</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource-instance_method" title="Api::ApiController#get_resource (method)">#get_resource</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource_collection-instance_method" title="Api::ApiController#get_resource_collection (method)">#get_resource_collection</a></span>, <span class='object_link'><a href="../ApiController.html#process_action-instance_method" title="Api::ApiController#process_action (method)">#process_action</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_katello_cli%3F-instance_method" title="Api::ApiController#request_from_katello_cli? (method)">#request_from_katello_cli?</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_rhsm%3F-instance_method" title="Api::ApiController#request_from_rhsm? (method)">#request_from_rhsm?</a></span>, <span class='object_link'><a href="../ApiController.html#require_user-instance_method" title="Api::ApiController#require_user (method)">#require_user</a></span>, <span class='object_link'><a href="../ApiController.html#resource_collection_name-instance_method" title="Api::ApiController#resource_collection_name (method)">#resource_collection_name</a></span>, <span class='object_link'><a href="../ApiController.html#resource_name-instance_method" title="Api::ApiController#resource_name (method)">#resource_name</a></span>, <span class='object_link'><a href="../ApiController.html#respond-instance_method" title="Api::ApiController#respond (method)">#respond</a></span>, <span class='object_link'><a href="../ApiController.html#split_order-instance_method" title="Api::ApiController#split_order (method)">#split_order</a></span>, <span class='object_link'><a href="../ApiController.html#verify_ldap-instance_method" title="Api::ApiController#verify_ldap (method)">#verify_ldap</a></span></p>
 
   
   
@@ -313,7 +313,8 @@ have received a copy of GPLv2 along with this software; if not, see
 45
 46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/api/v1/root_controller.rb', line 18</span>
@@ -340,7 +341,8 @@ have received a copy of GPLv2 along with this software; if not, see
                   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/errata/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
                   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/disributions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
                   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/tasks/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/gpg_keys/</span><span class='tstring_end'>&quot;</span></span>
+                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/gpg_keys/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/api/environments/</span><span class='tstring_end'>&quot;</span></span>
   <span class='rbracket'>]</span>
 
   <span class='comment'># filter out katello-only apis from headpin resource list
@@ -359,7 +361,7 @@ have received a copy of GPLv2 along with this software; if not, see
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:39 2013 by
+  Generated on Thu Jun  6 11:24:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

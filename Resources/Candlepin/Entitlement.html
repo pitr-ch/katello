@@ -245,13 +245,13 @@
       <pre class="lines">
 
 
-651
-652
-653
-654</pre>
+658
+659
+660
+661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 651</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 658</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span> <span class='id identifier rubyid_id'>id</span><span class='op'>=</span><span class='kw'>nil</span>
   <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinResource</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -277,12 +277,12 @@
       <pre class="lines">
 
 
-656
-657
-658</pre>
+663
+664
+665</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 656</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 663</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/candlepin/entitlements/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -307,12 +307,12 @@
       <pre class="lines">
 
 
-647
-648
-649</pre>
+654
+655
+656</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 647</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 654</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_regenerate_entitlement_certificates_for_product'>regenerate_entitlement_certificates_for_product</span><span class='lparen'>(</span><span class='id identifier rubyid_product_id'>product_id</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/candlepin/entitlements/product/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_id'>product_id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
@@ -327,7 +327,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:30 2013 by
+  Generated on Thu Jun  6 11:24:31 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

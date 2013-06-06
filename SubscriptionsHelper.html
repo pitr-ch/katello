@@ -147,6 +147,28 @@ have received a copy of GPLv2 along with this software; if not, see
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#subscriptions_candlepin_status-instance_method" title="#subscriptions_candlepin_status (instance method)">- (Object) <strong>subscriptions_candlepin_status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#subscriptions_distributor_link_helper-instance_method" title="#subscriptions_distributor_link_helper (instance method)">- (Object) <strong>subscriptions_distributor_link_helper</strong>(distributor_id) </a>
     
 
@@ -265,6 +287,40 @@ have received a copy of GPLv2 along with this software; if not, see
 
 <span class='kw'>def</span> <span class='id identifier rubyid_subscriptions_activation_key_link_helper'>subscriptions_activation_key_link_helper</span> <span class='id identifier rubyid_key'>key</span>
   <span class='id identifier rubyid_link_to'>link_to</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_root_path'>root_path</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>activation_keys#panel=activation_key_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="subscriptions_candlepin_status-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subscriptions_candlepin_status</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/subscriptions_helper.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subscriptions_candlepin_status'>subscriptions_candlepin_status</span>
+  <span class='const'>Resources</span><span class='op'>::</span><span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinPing</span><span class='period'>.</span><span class='id identifier rubyid_ping'>ping</span>
+<span class='kw'>rescue</span>
+  <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rulesVersion</span><span class='tstring_end'>'</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rulesSource</span><span class='tstring_end'>'</span></span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -438,7 +494,7 @@ have received a copy of GPLv2 along with this software; if not, see
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:11 2013 by
+  Generated on Thu Jun  6 11:24:11 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

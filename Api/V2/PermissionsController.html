@@ -264,7 +264,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../ApiController.html" title="Api::ApiController (class)">ApiController</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../ApiController.html#add_candlepin_version_header-instance_method" title="Api::ApiController#add_candlepin_version_header (method)">#add_candlepin_version_header</a></span>, <span class='object_link'><a href="../ApiController.html#current_user-instance_method" title="Api::ApiController#current_user (method)">#current_user</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource-instance_method" title="Api::ApiController#get_resource (method)">#get_resource</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource_collection-instance_method" title="Api::ApiController#get_resource_collection (method)">#get_resource_collection</a></span>, <span class='object_link'><a href="../ApiController.html#process_action-instance_method" title="Api::ApiController#process_action (method)">#process_action</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_katello_cli%3F-instance_method" title="Api::ApiController#request_from_katello_cli? (method)">#request_from_katello_cli?</a></span>, <span class='object_link'><a href="../ApiController.html#require_user-instance_method" title="Api::ApiController#require_user (method)">#require_user</a></span>, <span class='object_link'><a href="../ApiController.html#resource_collection_name-instance_method" title="Api::ApiController#resource_collection_name (method)">#resource_collection_name</a></span>, <span class='object_link'><a href="../ApiController.html#resource_name-instance_method" title="Api::ApiController#resource_name (method)">#resource_name</a></span>, <span class='object_link'><a href="../ApiController.html#respond-instance_method" title="Api::ApiController#respond (method)">#respond</a></span>, <span class='object_link'><a href="../ApiController.html#split_order-instance_method" title="Api::ApiController#split_order (method)">#split_order</a></span>, <span class='object_link'><a href="../ApiController.html#verify_ldap-instance_method" title="Api::ApiController#verify_ldap (method)">#verify_ldap</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../ApiController.html#add_candlepin_version_header-instance_method" title="Api::ApiController#add_candlepin_version_header (method)">#add_candlepin_version_header</a></span>, <span class='object_link'><a href="../ApiController.html#current_user-instance_method" title="Api::ApiController#current_user (method)">#current_user</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource-instance_method" title="Api::ApiController#get_resource (method)">#get_resource</a></span>, <span class='object_link'><a href="../ApiController.html#get_resource_collection-instance_method" title="Api::ApiController#get_resource_collection (method)">#get_resource_collection</a></span>, <span class='object_link'><a href="../ApiController.html#process_action-instance_method" title="Api::ApiController#process_action (method)">#process_action</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_katello_cli%3F-instance_method" title="Api::ApiController#request_from_katello_cli? (method)">#request_from_katello_cli?</a></span>, <span class='object_link'><a href="../ApiController.html#request_from_rhsm%3F-instance_method" title="Api::ApiController#request_from_rhsm? (method)">#request_from_rhsm?</a></span>, <span class='object_link'><a href="../ApiController.html#require_user-instance_method" title="Api::ApiController#require_user (method)">#require_user</a></span>, <span class='object_link'><a href="../ApiController.html#resource_collection_name-instance_method" title="Api::ApiController#resource_collection_name (method)">#resource_collection_name</a></span>, <span class='object_link'><a href="../ApiController.html#resource_name-instance_method" title="Api::ApiController#resource_name (method)">#resource_name</a></span>, <span class='object_link'><a href="../ApiController.html#respond-instance_method" title="Api::ApiController#respond (method)">#respond</a></span>, <span class='object_link'><a href="../ApiController.html#split_order-instance_method" title="Api::ApiController#split_order (method)">#split_order</a></span>, <span class='object_link'><a href="../ApiController.html#verify_ldap-instance_method" title="Api::ApiController#verify_ldap (method)">#verify_ldap</a></span></p>
 
   
   
@@ -310,8 +310,6 @@
       <pre class="lines">
 
 
-38
-39
 40
 41
 42
@@ -328,10 +326,13 @@
 53
 54
 55
-56</pre>
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/api/v2/permissions_controller.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/api/v2/permissions_controller.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='id identifier rubyid_perm_attrs'>perm_attrs</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:permission</span><span class='rbracket'>]</span>
@@ -339,6 +340,7 @@
       <span class='symbol'>:role</span>          <span class='op'>=&gt;</span> <span class='ivar'>@role</span><span class='comma'>,</span>
       <span class='symbol'>:organization</span>  <span class='op'>=&gt;</span> <span class='ivar'>@organization</span><span class='comma'>,</span>
       <span class='symbol'>:all_tags</span>      <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:all_tags</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span> <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:all_tags</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='symbol'>:all_verbs</span>      <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:all_verbs</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span> <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:all_verbs</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='symbol'>:verb_values</span>   <span class='op'>=&gt;</span> <span class='id identifier rubyid_perm_attrs'>perm_attrs</span><span class='lbracket'>[</span><span class='symbol'>:verbs</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
       <span class='symbol'>:tag_values</span>    <span class='op'>=&gt;</span> <span class='id identifier rubyid_perm_attrs'>perm_attrs</span><span class='lbracket'>[</span><span class='symbol'>:tags</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
       <span class='symbol'>:resource_type</span> <span class='op'>=&gt;</span> <span class='const'>ResourceType</span><span class='period'>.</span><span class='id identifier rubyid_find_or_create_by_name'>find_or_create_by_name</span><span class='lparen'>(</span><span class='id identifier rubyid_perm_attrs'>perm_attrs</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -376,14 +378,16 @@
 19
 20
 21
-22</pre>
+22
+23</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/api/v2/permissions_controller.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_param_rules'>param_rules</span>
   <span class='lbrace'>{</span>
-      <span class='symbol'>:create</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:permission</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:description</span><span class='comma'>,</span> <span class='symbol'>:role_id</span><span class='comma'>,</span> <span class='symbol'>:organization_id</span><span class='comma'>,</span> <span class='symbol'>:verbs</span><span class='comma'>,</span> <span class='symbol'>:tags</span><span class='comma'>,</span> <span class='symbol'>:type</span><span class='comma'>,</span> <span class='symbol'>:all_tags</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+      <span class='symbol'>:create</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:permission</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:description</span><span class='comma'>,</span> <span class='symbol'>:role_id</span><span class='comma'>,</span> <span class='symbol'>:organization_id</span><span class='comma'>,</span> <span class='symbol'>:verbs</span><span class='comma'>,</span> <span class='symbol'>:tags</span><span class='comma'>,</span> <span class='symbol'>:type</span><span class='comma'>,</span> <span class='symbol'>:all_tags</span><span class='comma'>,</span>
+                                   <span class='symbol'>:all_verbs</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
   <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -396,7 +400,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:53 2013 by
+  Generated on Thu Jun  6 11:25:00 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

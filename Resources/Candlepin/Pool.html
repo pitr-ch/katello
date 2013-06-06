@@ -289,13 +289,13 @@
       <pre class="lines">
 
 
-444
-445
-446
-447</pre>
+451
+452
+453
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 444</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 451</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span>
   <span class='id identifier rubyid_pools_json'>pools_json</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -343,13 +343,13 @@
       <pre class="lines">
 
 
-439
-440
-441
-442</pre>
+446
+447
+448
+449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 439</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 446</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span> <span class='id identifier rubyid_id'>id</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pool id has to be specified</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_id'>id</span>
@@ -397,14 +397,14 @@
       <pre class="lines">
 
 
-428
-429
-430
-431
-432</pre>
+435
+436
+437
+438
+439</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 428</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 435</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find'>find</span> <span class='id identifier rubyid_pool_id'>pool_id</span>
   <span class='id identifier rubyid_pool_json'>pool_json</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_pool_id'>pool_id</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -431,13 +431,13 @@
       <pre class="lines">
 
 
-434
-435
-436
-437</pre>
+441
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 434</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 441</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_for_owner'>get_for_owner</span> <span class='id identifier rubyid_owner_key'>owner_key</span>
   <span class='id identifier rubyid_pools_json'>pools_json</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/candlepin/owners/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_owner_key'>owner_key</span><span class='rbrace'>}</span><span class='tstring_content'>/pools</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -463,12 +463,12 @@
       <pre class="lines">
 
 
-450
-451
-452</pre>
+457
+458
+459</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 450</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 457</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span> <span class='id identifier rubyid_id'>id</span><span class='op'>=</span><span class='kw'>nil</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/candlepin/pools/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -483,7 +483,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:29 2013 by
+  Generated on Thu Jun  6 11:24:30 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

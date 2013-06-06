@@ -93,7 +93,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2">Authorization::Environment, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Ext/PermissionTagCleanup.html" title="Ext::PermissionTagCleanup (module)">Ext::PermissionTagCleanup</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, <span class='object_link'><a href="Glue/ElasticSearch/Environment.html" title="Glue::ElasticSearch::Environment (module)">Glue::ElasticSearch::Environment</a></span></dd>
+      <dd class="r2">Authorization::Environment, <span class='object_link'><a href="Ext/LabelFromName.html" title="Ext::LabelFromName (module)">Ext::LabelFromName</a></span>, <span class='object_link'><a href="Ext/PermissionTagCleanup.html" title="Ext::PermissionTagCleanup (module)">Ext::PermissionTagCleanup</a></span>, <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span>, <span class='object_link'><a href="Glue/ElasticSearch/Environment.html" title="Glue::ElasticSearch::Environment (module)">Glue::ElasticSearch::Environment</a></span>, <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span></dd>
       
     
   
@@ -792,6 +792,28 @@ enabled repos.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create_event-instance_method" title="#create_event (instance method)">- (Object) <strong>create_event</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#default_content_view-instance_method" title="#default_content_view (instance method)">- (Object) <strong>default_content_view</strong> </a>
     
 
@@ -837,6 +859,28 @@ enabled repos.</p>
   <span class="summary_signature">
     
       <a href="#delete_default_view_version-instance_method" title="#delete_default_view_version (instance method)">- (Object) <strong>delete_default_view_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_event-instance_method" title="#destroy_event (instance method)">- (Object) <strong>destroy_event</strong> </a>
     
 
     
@@ -1288,6 +1332,17 @@ enabled repos.</p>
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue/Event.html" title="Glue::Event (module)">Glue::Event</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Glue/Event.html#included-class_method" title="Glue::Event.included (method)">included</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger-class_method" title="Glue::Event.trigger (method)">trigger</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_create_event-instance_method" title="Glue::Event#trigger_create_event (method)">#trigger_create_event</a></span>, <span class='object_link'><a href="Glue/Event.html#trigger_destroy_event-instance_method" title="Glue::Event#trigger_destroy_event (method)">#trigger_destroy_event</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Glue.html" title="Glue (module)">Glue</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Glue.html#included-class_method" title="Glue.included (method)">included</a></span>, <span class='object_link'><a href="Glue.html#logger-class_method" title="Glue.logger (method)">logger</a></span></p>
 
@@ -1354,10 +1409,10 @@ enabled repos.</p>
       <pre class="lines">
 
 
-59</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 67</span>
 
 <span class='id identifier rubyid_scope'>scope</span> <span class='symbol'>:completer_scope</span><span class='comma'>,</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_options'>options</span><span class='op'>|</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>organization_id = ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:organization_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbrace'>}</span></pre>
     </td>
@@ -1390,12 +1445,12 @@ enabled repos.</p>
       <pre class="lines">
 
 
-197
-198
-199</pre>
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_list_tags'>list_tags</span> <span class='id identifier rubyid_org_id'>org_id</span>
   <span class='const'>KTEnvironment</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:organization_id</span><span class='op'>=&gt;</span><span class='id identifier rubyid_org_id'>org_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='const'>VirtualTag</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1420,12 +1475,12 @@ enabled repos.</p>
       <pre class="lines">
 
 
-201
-202
-203</pre>
+210
+211
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='lparen'>(</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span>
   <span class='const'>KTEnvironment</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='const'>VirtualTag</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1485,10 +1540,10 @@ enabled repos.</p>
       <pre class="lines">
 
 
-29</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 37</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:activation_keys</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span></pre>
     </td>
@@ -1511,16 +1566,16 @@ enabled repos.</p>
       <pre class="lines">
 
 
-184
-185
-186
-187
-188
-189
-190</pre>
+193
+194
+195
+196
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_to_ret'>to_ret</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span>
@@ -1549,18 +1604,18 @@ enabled repos.</p>
       <pre class="lines">
 
 
-173
-174
-175
-176
-177
-178
-179
-180
-181</pre>
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_available_products'>available_products</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_prior'>prior</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span>
@@ -1603,16 +1658,16 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-269
-270
-271
-272
-273
-274
-275</pre>
+278
+279
+280
+281
+282
+283
+284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 278</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_available_releases'>available_releases</span>
   <span class='kw'>if</span> <span class='const'>Katello</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_katello?'>katello?</span>
@@ -1670,10 +1725,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-51</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 59</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:changeset_history</span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:state</span> <span class='op'>=&gt;</span> <span class='const'>Changeset</span><span class='op'>::</span><span class='const'>PROMOTED</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:class_name</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Changeset</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span></pre>
     </td>
@@ -1696,21 +1751,21 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155
-156
-157
 158
 159
-160</pre>
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_confirm_last_env'>confirm_last_env</span>
   <span class='comment'># when deleting env while org is deleted, self.organization is nil (and we
@@ -1744,13 +1799,13 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-92
-93
-94
-95</pre>
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content_view_environment'>content_view_environment</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view'>default_content_view</span>
@@ -1805,10 +1860,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-55</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 63</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_environments</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span><span class='op'>=&gt;</span><span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span><span class='op'>=&gt;</span><span class='symbol'>:environment</span><span class='comma'>,</span> <span class='symbol'>:dependent</span><span class='op'>=&gt;</span><span class='symbol'>:destroy</span></pre>
     </td>
@@ -1860,10 +1915,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-53</pre>
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 61</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_version_environments</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span><span class='op'>=&gt;</span><span class='symbol'>:environment_id</span></pre>
     </td>
@@ -1915,10 +1970,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-54</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 62</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:content_view_versions</span><span class='comma'>,</span> <span class='symbol'>:through</span><span class='op'>=&gt;</span><span class='symbol'>:content_view_version_environments</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span><span class='op'>=&gt;</span><span class='symbol'>:environments</span></pre>
     </td>
@@ -1941,14 +1996,14 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-97
-98
-99
-100
-101</pre>
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content_views'>content_views</span><span class='lparen'>(</span><span class='id identifier rubyid_reload'>reload</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@content_views</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_reload'>reload</span>
@@ -1975,15 +2030,6 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-277
-278
-279
-280
-281
-282
-283
-284
-285
 286
 287
 288
@@ -1992,10 +2038,19 @@ versions in the manifest.</p>
 291
 292
 293
-294</pre>
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 277</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 286</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_default_content_view_version'>create_default_content_view_version</span>
   <span class='comment'>#Sadly this has to be created here, if it is created in the org
@@ -2021,6 +2076,36 @@ versions in the manifest.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="create_event-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_event</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_event'>create_event</span>
+  <span class='const'>Katello</span><span class='op'>::</span><span class='const'>Actions</span><span class='op'>::</span><span class='const'>EnvironmentCreate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="default_content_view-instance_method">
   
     - (<tt>Object</tt>) <strong>default_content_view</strong> 
@@ -2035,12 +2120,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_content_view'>default_content_view</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view_version'>default_content_view_version</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:content_view</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -2065,13 +2150,13 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-87
-88
-89
-90</pre>
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_content_view_version'>default_content_view_version</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view'>default_content_view</span>
@@ -2097,15 +2182,45 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-296
-297
-298</pre>
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_default_view_version'>delete_default_view_version</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_content_view_version'>default_content_view_version</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_event-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroy_event</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_event'>destroy_event</span>
+  <span class='const'>Katello</span><span class='op'>::</span><span class='const'>Actions</span><span class='op'>::</span><span class='const'>EnvironmentDestroy</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2127,12 +2242,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_name'>display_name</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
@@ -2186,10 +2301,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-45</pre>
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 53</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:distributors</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span>  <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span></pre>
     </td>
@@ -2241,10 +2356,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-35</pre>
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 43</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:environment_products</span><span class='comma'>,</span> <span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EnvironmentProduct</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environment_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:uniq</span><span class='op'>=&gt;</span><span class='kw'>true</span></pre>
     </td>
@@ -2267,20 +2382,20 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-240
-241
-242
-243
-244
-245
-246
-247
-248
 249
-250</pre>
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 249</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_latest_packages_by_name'>find_latest_packages_by_name</span> <span class='id identifier rubyid_name'>name</span>
 
@@ -2313,17 +2428,17 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-222
-223
-224
-225
-226
-227
-228
-229</pre>
+231
+232
+233
+234
+235
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_packages_by_name'>find_packages_by_name</span> <span class='id identifier rubyid_name'>name</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prod'>prod</span><span class='op'>|</span>
@@ -2353,17 +2468,17 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-231
-232
-233
-234
-235
-236
-237
-238</pre>
+240
+241
+242
+243
+244
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 240</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_packages_by_nvre'>find_packages_by_nvre</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='id identifier rubyid_release'>release</span><span class='comma'>,</span> <span class='id identifier rubyid_epoch'>epoch</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prod'>prod</span><span class='op'>|</span>
@@ -2405,16 +2520,16 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-165
-166
-167
-168
-169
-170
-171</pre>
+174
+175
+176
+177
+178
+179
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_full_path'>full_path</span>
   <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='kw'>self</span>
@@ -2443,14 +2558,14 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-252
-253
-254
-255
-256</pre>
+261
+262
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 252</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_distribution'>get_distribution</span> <span class='id identifier rubyid_id'>id</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prod'>prod</span><span class='op'>|</span>
@@ -2477,12 +2592,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-192
-193
-194</pre>
+201
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_key_for'>key_for</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environment_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_item'>item</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -2529,12 +2644,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_library?'>library?</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span>
@@ -2588,10 +2703,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-28</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 36</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:organization</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environments</span></pre>
     </td>
@@ -2614,16 +2729,16 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220</pre>
+223
+224
+225
+226
+227
+228
+229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_package_group_categories'>package_group_categories</span> <span class='id identifier rubyid_search_args'>search_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2652,16 +2767,16 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-206
-207
-208
-209
-210
-211
-212</pre>
+215
+216
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_package_groups'>package_groups</span> <span class='id identifier rubyid_search_args'>search_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_groups'>groups</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2690,19 +2805,19 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136</pre>
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
   <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_successor'>successor</span>
@@ -2734,12 +2849,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-116
-117
-118</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prior'>prior</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_priors'>priors</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
@@ -2764,15 +2879,15 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-120
-121
-122
-123
-124
-125</pre>
+129
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prior='>prior=</span><span class='lparen'>(</span><span class='id identifier rubyid_env_id'>env_id</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_priors'>priors</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
@@ -2829,11 +2944,11 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-30
-31</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 38</span>
 
 <span class='id identifier rubyid_has_and_belongs_to_many'>has_and_belongs_to_many</span> <span class='symbol'>:priors</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KTEnvironment</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span>
 <span class='symbol'>:join_table</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environment_priors</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:association_foreign_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>prior_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:uniq</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rbrace'>}</span></pre>
@@ -2886,14 +3001,14 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-36
-37
-38
-39
-40</pre>
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 44</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:products</span><span class='comma'>,</span> <span class='symbol'>:uniq</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='symbol'>:through</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_products</span>  <span class='kw'>do</span>
   <span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_items'>items</span><span class='rparen'>)</span>
@@ -2930,13 +3045,13 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-144
-145
-146
-147</pre>
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_promoting'>promoting</span>
     <span class='const'>Changeset</span><span class='period'>.</span><span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:task_status</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>changesets.environment_id</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -2985,12 +3100,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-139
-140
-141</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_promoting_to?'>promoting_to?</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_promoting'>promoting</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span>
@@ -3044,10 +3159,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-42</pre>
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 50</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:repositories</span><span class='comma'>,</span> <span class='symbol'>:through</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_products</span><span class='comma'>,</span> <span class='symbol'>:source</span> <span class='op'>=&gt;</span> <span class='symbol'>:repositories</span></pre>
     </td>
@@ -3070,13 +3185,13 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-103
-104
-105
-106</pre>
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_successor'>successor</span>
   <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_successors'>successors</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_library?'>library?</span>
@@ -3131,11 +3246,11 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-32
-33</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 40</span>
 
 <span class='id identifier rubyid_has_and_belongs_to_many'>has_and_belongs_to_many</span> <span class='symbol'>:successors</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='symbol'>:class_name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KTEnvironment</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>prior_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
 <span class='symbol'>:join_table</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>environment_priors</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:association_foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:readonly</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rbrace'>}</span></pre>
@@ -3188,10 +3303,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-44</pre>
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 52</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:systems</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span>  <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span></pre>
     </td>
@@ -3214,12 +3329,12 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-112
-113
-114</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_display_name'>display_name</span>
@@ -3244,16 +3359,16 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-258
-259
-260
-261
-262
-263
-264</pre>
+267
+268
+269
+270
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unset_users_with_default'>unset_users_with_default</span>
   <span class='id identifier rubyid_users'>users</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_with_default_environment'>with_default_environment</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
@@ -3311,10 +3426,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-57</pre>
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 65</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:users</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:default_environment_id</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:default_environment</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:nullify</span></pre>
     </td>
@@ -3366,10 +3481,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-46</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 54</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:working_changesets</span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state != '</span><span class='embexpr_beg'>#{</span><span class='const'>Changeset</span><span class='op'>::</span><span class='const'>PROMOTED</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:class_name</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Changeset</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span></pre>
     </td>
@@ -3421,10 +3536,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-48</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 56</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:working_deletion_changesets</span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state != '</span><span class='embexpr_beg'>#{</span><span class='const'>Changeset</span><span class='op'>::</span><span class='const'>DELETED</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:class_name</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DeletionChangeset</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span></pre>
     </td>
@@ -3476,10 +3591,10 @@ versions in the manifest.</p>
       <pre class="lines">
 
 
-49</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'app/models/kt_environment.rb', line 57</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:working_promotion_changesets</span><span class='comma'>,</span> <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state != '</span><span class='embexpr_beg'>#{</span><span class='const'>Changeset</span><span class='op'>::</span><span class='const'>PROMOTED</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:foreign_key</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment_id</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:class_name</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PromotionChangeset</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span><span class='comma'>,</span> <span class='symbol'>:inverse_of</span> <span class='op'>=&gt;</span> <span class='symbol'>:environment</span></pre>
     </td>
@@ -3492,7 +3607,7 @@ versions in the manifest.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:28 2013 by
+  Generated on Thu Jun  6 11:24:29 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

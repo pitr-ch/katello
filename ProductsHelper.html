@@ -239,7 +239,74 @@ This will be determined from the readable &amp; editable products provided in th
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the options to construct the product hash with</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:readable_products</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>List of readable products</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:editable_products</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>List of editable products</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:content_types</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>Optional</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Filter repos by listed types</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
 
 </div><table class="source_code">
   <tr>
@@ -247,10 +314,6 @@ This will be determined from the readable &amp; editable products provided in th
       <pre class="lines">
 
 
-48
-49
-50
-51
 52
 53
 54
@@ -260,17 +323,23 @@ This will be determined from the readable &amp; editable products provided in th
 58
 59
 60
-61</pre>
+61
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/helpers/products_helper.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/helpers/products_helper.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_products'>get_products</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:content_types</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='const'>Repository</span><span class='op'>::</span><span class='const'>TYPES</span><span class='rbracket'>]</span>
   <span class='kw'>if</span> <span class='ivar'>@product_hash</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='ivar'>@product_hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
     <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:readable_products</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prod'>prod</span><span class='op'>|</span>
       <span class='id identifier rubyid_repos'>repos</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-      <span class='id identifier rubyid_prod'>prod</span><span class='period'>.</span><span class='id identifier rubyid_repos'>repos</span><span class='lparen'>(</span><span class='id identifier rubyid_current_organization'>current_organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_repo'>repo</span><span class='op'>|</span>
+      <span class='id identifier rubyid_prod'>prod</span><span class='period'>.</span><span class='id identifier rubyid_repos'>repos</span><span class='lparen'>(</span><span class='id identifier rubyid_current_organization'>current_organization</span><span class='period'>.</span><span class='id identifier rubyid_library'>library</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:content_type</span><span class='op'>=&gt;</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:content_types</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_repo'>repo</span><span class='op'>|</span>
         <span class='id identifier rubyid_repos'>repos</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span><span class='symbol'>:name</span><span class='op'>=&gt;</span><span class='id identifier rubyid_repo'>repo</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='op'>=&gt;</span><span class='id identifier rubyid_repo'>repo</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbrace'>}</span>
       <span class='rbrace'>}</span>
       <span class='ivar'>@product_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_prod'>prod</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:name</span><span class='op'>=&gt;</span><span class='id identifier rubyid_prod'>prod</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='symbol'>:repos</span><span class='op'>=&gt;</span><span class='id identifier rubyid_repos'>repos</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='op'>=&gt;</span><span class='id identifier rubyid_prod'>prod</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -425,7 +494,7 @@ record has a &#39;repositories&#39; relationship.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:10 2013 by
+  Generated on Thu Jun  6 11:24:10 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

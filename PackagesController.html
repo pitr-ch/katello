@@ -188,6 +188,28 @@ have received a copy of GPLv2 along with this software; if not, see
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#details-instance_method" title="#details (instance method)">- (Object) <strong>details</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#filelist-instance_method" title="#filelist (instance method)">- (Object) <strong>filelist</strong> </a>
     
 
@@ -375,12 +397,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_changelog'>changelog</span>
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>changelog</span><span class='tstring_end'>&quot;</span></span>
@@ -405,15 +427,45 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dependencies'>dependencies</span>
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dependencies</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="details-instance_method">
+  
+    - (<tt>Object</tt>) <strong>details</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_details'>details</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>details</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -435,12 +487,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filelist'>filelist</span>
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>filelist</span><span class='tstring_end'>&quot;</span></span>
@@ -465,14 +517,14 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-51
-52
-53
-54
-55</pre>
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lookup_package'>lookup_package</span>
   <span class='ivar'>@package_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span>
@@ -512,7 +564,8 @@ have received a copy of GPLv2 along with this software; if not, see
 28
 29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 18</span>
@@ -528,7 +581,8 @@ have received a copy of GPLv2 along with this software; if not, see
     <span class='symbol'>:show</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='comma'>,</span>
     <span class='symbol'>:filelist</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='comma'>,</span>
     <span class='symbol'>:changelog</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='comma'>,</span>
-    <span class='symbol'>:dependencies</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span>
+    <span class='symbol'>:dependencies</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='comma'>,</span>
+    <span class='symbol'>:details</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span>
   <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -551,12 +605,12 @@ have received a copy of GPLv2 along with this software; if not, see
       <pre class="lines">
 
 
-33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/packages_controller.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span><span class='op'>=&gt;</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show</span><span class='tstring_end'>&quot;</span></span>
@@ -571,7 +625,7 @@ have received a copy of GPLv2 along with this software; if not, see
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:35 2013 by
+  Generated on Thu Jun  6 11:24:36 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

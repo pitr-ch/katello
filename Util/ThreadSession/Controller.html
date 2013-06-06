@@ -194,14 +194,14 @@
       <pre class="lines">
 
 
-93
 94
 95
 96
-97</pre>
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/util/thread_session.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'app/lib/util/thread_session.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
@@ -234,45 +234,21 @@
       <pre class="lines">
 
 
-99
 100
 101
 102
 103
 104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/util/thread_session.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'app/lib/util/thread_session.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_thread_locals'>thread_locals</span>
-  <span class='comment'># store request uuid (for Rails 3.2+ we can use Request.uuid) and process pid
-</span>  <span class='id identifier rubyid_uuid'>uuid</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:uuid</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_uuid'>uuid</span> <span class='op'>:</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_hex'>hex</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>
-  <span class='op'>::</span><span class='const'>Logging</span><span class='period'>.</span><span class='id identifier rubyid_mdc'>mdc</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>uuid</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span class='symbol'>:request_uuid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_uuid'>uuid</span>
-
-  <span class='comment'># store user
-</span>  <span class='id identifier rubyid_u'>u</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
-  <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='id identifier rubyid_u'>u</span>
-
+  <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span>
   <span class='kw'>yield</span>
-
-  <span class='comment'># reset the current user (for security reasons)
-</span>  <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='kw'>nil</span>
-<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_exception'>exception</span>
-  <span class='comment'># reset the current user (for security reasons)
-</span>  <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='id identifier rubyid_raise'>raise</span>
+<span class='kw'>ensure</span>
+  <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -284,7 +260,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:10 2013 by
+  Generated on Thu Jun  6 11:24:10 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

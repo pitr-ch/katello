@@ -687,22 +687,34 @@
       <pre class="lines">
 
 
-207
 208
 209
 210
 211
 212
 213
-214</pre>
+214
+215
+216
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compliance'>compliance</span> <span class='id identifier rubyid_uuid'>uuid</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinResource</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>compliance</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
+    <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with_indifferent_access'>with_indifferent_access</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_json'>json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reasons</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_json'>json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reasons</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sort!'>sort!</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>attributes</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>name</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>attributes</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>name</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_json'>json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>reasons</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_json'>json</span>
   <span class='kw'>else</span>
     <span class='kw'>return</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
@@ -731,7 +743,8 @@
 169
 170
 171
-172</pre>
+172
+173</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 168</span>
@@ -739,7 +752,8 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_consume_entitlement'>consume_entitlement</span> <span class='id identifier rubyid_uuid'>uuid</span><span class='comma'>,</span> <span class='id identifier rubyid_pool'>pool</span><span class='comma'>,</span> <span class='id identifier rubyid_quantity'>quantity</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>entitlements</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?pool=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pool'>pool</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;quantity=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_quantity'>quantity</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_quantity'>quantity</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -871,17 +885,17 @@
       <pre class="lines">
 
 
-216
-217
-218
-219
-220
-221
-222
-223</pre>
+223
+224
+225
+226
+227
+228
+229
+230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_events'>events</span> <span class='id identifier rubyid_uuid'>uuid</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinResource</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>events</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -979,15 +993,15 @@
       <pre class="lines">
 
 
-189
 190
 191
 192
 193
-194</pre>
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_guests'>guests</span> <span class='id identifier rubyid_uuid'>uuid</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinResource</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>guests</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -1015,7 +1029,6 @@
       <pre class="lines">
 
 
-196
 197
 198
 199
@@ -1024,10 +1037,11 @@
 202
 203
 204
-205</pre>
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_host'>host</span> <span class='id identifier rubyid_uuid'>uuid</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Candlepin</span><span class='op'>::</span><span class='const'>CandlepinResource</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>host</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_headers'>default_headers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
@@ -1189,13 +1203,13 @@
       <pre class="lines">
 
 
-184
 185
 186
-187</pre>
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_certificate'>remove_certificate</span> <span class='id identifier rubyid_uuid'>uuid</span><span class='comma'>,</span> <span class='id identifier rubyid_serial_id'>serial_id</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>certificates</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_serial_id'>serial_id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1221,13 +1235,13 @@
       <pre class="lines">
 
 
-174
 175
 176
-177</pre>
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_entitlement'>remove_entitlement</span> <span class='id identifier rubyid_uuid'>uuid</span><span class='comma'>,</span> <span class='id identifier rubyid_ent_id'>ent_id</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>entitlements</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ent_id'>ent_id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1253,13 +1267,13 @@
       <pre class="lines">
 
 
-179
 180
 181
-182</pre>
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 179</span>
+      <pre class="code"><span class="info file"># File 'app/lib/resources/candlepin.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_entitlements'>remove_entitlements</span> <span class='id identifier rubyid_uuid'>uuid</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_join_path'>join_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_uuid'>uuid</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>entitlements</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1331,7 +1345,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:29 2013 by
+  Generated on Thu Jun  6 11:24:30 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

@@ -1531,6 +1531,28 @@ to.target or same start and target, others should be safe, ignoring self of cour
 </li>
 
       
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#validate_content_view_tasks_complete%21-instance_method" title="#validate_content_view_tasks_complete! (instance method)">- (Object) <strong>validate_content_view_tasks_complete!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -2862,16 +2884,16 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-298
-299
-300
-301
-302
-303
-304</pre>
+326
+327
+328
+329
+330
+331
+332</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 298</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 326</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_env_to_verify_on_add_content'>env_to_verify_on_add_content</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_promotion?'>promotion?</span>
@@ -3040,25 +3062,25 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296</pre>
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 309</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_package_data'>find_package_data</span><span class='lparen'>(</span><span class='id identifier rubyid_product'>product</span><span class='comma'>,</span> <span class='id identifier rubyid_name_or_nvre'>name_or_nvre</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_package_data'>package_data</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Package</span><span class='period'>.</span><span class='id identifier rubyid_parse_nvrea_nvre'>parse_nvrea_nvre</span><span class='lparen'>(</span><span class='id identifier rubyid_name_or_nvre'>name_or_nvre</span><span class='rparen'>)</span>
@@ -3096,29 +3118,29 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332</pre>
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 313</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 341</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index_repo_content'>index_repo_content</span> <span class='id identifier rubyid_to_env'>to_env</span>
   <span class='comment'># for any repos contained within the changeset, index the packages &amp; errata that have
@@ -3235,14 +3257,14 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-384
-385
-386
-387
-388</pre>
+412
+413
+414
+415
+416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 384</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 412</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_included_distribution'>not_included_distribution</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_distributions'>distributions</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_distro'>distro</span><span class='op'>|</span>
@@ -3269,14 +3291,14 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-378
-379
-380
-381
-382</pre>
+406
+407
+408
+409
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 378</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 406</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_included_errata'>not_included_errata</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_errata'>errata</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_err'>err</span><span class='op'>|</span>
@@ -3303,14 +3325,14 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-372
-373
-374
-375
-376</pre>
+400
+401
+402
+403
+404</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 372</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 400</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_included_packages'>not_included_packages</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_packages'>packages</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pack'>pack</span><span class='op'>|</span>
@@ -3337,18 +3359,18 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-350
-351
-352
-353
-354
-355
-356
-357
-358</pre>
+378
+379
+380
+381
+382
+383
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 350</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 378</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_included_products'>not_included_products</span>
   <span class='id identifier rubyid_products_ids'>products_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -3379,12 +3401,12 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-360
-361
-362</pre>
+388
+389
+390</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 360</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_included_repos'>not_included_repos</span> <span class='id identifier rubyid_product'>product</span><span class='comma'>,</span> <span class='id identifier rubyid_environment'>environment</span>
   <span class='id identifier rubyid_product_repos'>product_repos</span> <span class='op'>=</span> <span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_repos'>repos</span><span class='lparen'>(</span><span class='id identifier rubyid_environment'>environment</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_repos'>repos</span>
@@ -3409,16 +3431,16 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-364
-365
-366
-367
-368
-369
-370</pre>
+392
+393
+394
+395
+396
+397
+398</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 364</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 392</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_package_ids'>package_ids</span> <span class='id identifier rubyid_repos'>repos</span>
   <span class='id identifier rubyid_pkg_ids'>pkg_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -3969,24 +3991,24 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348</pre>
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 334</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 362</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uniquify_artifacts'>uniquify_artifacts</span>
   <span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_uniq!'>uniq!</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_products'>products</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -4023,15 +4045,15 @@ to.target or same start and target, others should be safe, ignoring self of cour
       <pre class="lines">
 
 
-306
-307
-308
-309
-310
-311</pre>
+334
+335
+336
+337
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 306</span>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 334</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_progress!'>update_progress!</span> <span class='id identifier rubyid_percent'>percent</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span>
@@ -4129,12 +4151,90 @@ to.target or same start and target, others should be safe, ignoring self of cour
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="validate_content_view_tasks_complete!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>validate_content_view_tasks_complete!</strong>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/changeset.rb', line 281</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_validate_content_view_tasks_complete!'>validate_content_view_tasks_complete!</span>
+  <span class='comment'># if the user is attempting to apply a view that is currently being
+</span>  <span class='comment'># published/refreshed or a view that has a component view that is
+</span>  <span class='comment'># currently being published/refreshed, stop the 'apply'
+</span>  <span class='id identifier rubyid_from_env'>from_env</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_environment'>environment</span><span class='period'>.</span><span class='id identifier rubyid_prior'>prior</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_content_views'>content_views</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_view'>view</span><span class='op'>|</span>
+    <span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='lparen'>(</span><span class='id identifier rubyid_from_env'>from_env</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_version'>version</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:task_status</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:pending?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>ContentViewTaskInProgress</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A '%{type_of_action}' action is currently in progress for  </span><span class='tstring_end'>&quot;</span></span>\
+                                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>content view '%{content_view}'.  Please retry the changeset </span><span class='tstring_end'>&quot;</span></span>\
+                                                    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>after the action completes.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>%</span>
+                                                    <span class='lbrace'>{</span> <span class='symbol'>:type_of_action</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='const'>TaskStatus</span><span class='op'>::</span><span class='const'>TYPES</span><span class='lbracket'>[</span><span class='id identifier rubyid_version'>version</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span><span class='period'>.</span><span class='id identifier rubyid_task_type'>task_type</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:english_name</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                                                      <span class='symbol'>:content_view</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_composite'>composite</span>
+      <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_content_view_definition'>content_view_definition</span><span class='period'>.</span><span class='id identifier rubyid_component_content_views'>component_content_views</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_component_view'>component_view</span><span class='op'>|</span>
+        <span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='id identifier rubyid_component_view'>component_view</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='lparen'>(</span><span class='id identifier rubyid_from_env'>from_env</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_version'>version</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span><span class='period'>.</span><span class='id identifier rubyid_pending?'>pending?</span>
+          <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>ContentViewTaskInProgress</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A '%{type_of_action}' action is currently in progress for </span><span class='tstring_end'>&quot;</span></span>\
+                                                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>component content view '%{content_view}'.  Please retry </span><span class='tstring_end'>&quot;</span></span>\
+                                                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>the changeset after the action completes.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>%</span>
+                                                        <span class='lbrace'>{</span> <span class='symbol'>:type_of_action</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='const'>TaskStatus</span><span class='op'>::</span><span class='const'>TYPES</span><span class='lbracket'>[</span><span class='id identifier rubyid_version'>version</span><span class='period'>.</span><span class='id identifier rubyid_task_status'>task_status</span><span class='period'>.</span><span class='id identifier rubyid_task_type'>task_type</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:english_name</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                                                          <span class='symbol'>:content_view</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_view'>view</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:21 2013 by
+  Generated on Thu Jun  6 11:24:22 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

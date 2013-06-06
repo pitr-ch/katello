@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: PackagesHelper
+  
+    &mdash; Katello
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">PackagesHelper</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: PackagesHelper
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">
+      <a href="https://github.com/Katello/katello/tree/master/app/helpers/packages_helper.rb" target="_blank">
+        app/helpers/packages_helper.rb
+      </a>
+    </dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Copyright 2013 Red Hat, Inc.</p>
+
+<p>This software is licensed to you under the GNU General Public
+License as published by the Free Software Foundation; either version
+2 of the License (GPLv2) or (at your option) any later version.
+There is NO WARRANTY for this software, express or implied,
+including the implied warranties of MERCHANTABILITY,
+NON-INFRINGEMENT, or FITNESS FOR A PARTICULAR PURPOSE. You should
+have received a copy of GPLv2 along with this software; if not, see
+<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt">http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#changelog_changes-instance_method" title="#changelog_changes (instance method)">- (Object) <strong>changelog_changes</strong>(changes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_changelog_changes-instance_method" title="#format_changelog_changes (instance method)">- (Object) <strong>format_changelog_changes</strong>(changes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_changelog_date-instance_method" title="#format_changelog_date (instance method)">- (Object) <strong>format_changelog_date</strong>(date) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#previewed_changelog-instance_method" title="#previewed_changelog (instance method)">- (Object) <strong>previewed_changelog</strong>(lines) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="changelog_changes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>changelog_changes</strong>(changes) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/packages_helper.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_changelog_changes'>changelog_changes</span><span class='lparen'>(</span><span class='id identifier rubyid_changes'>changes</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span> <span class='op'>=</span> <span class='id identifier rubyid_changes'>changes</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_previewed_changelog'>previewed_changelog</span><span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_format_changelog_changes'>format_changelog_changes</span><span class='lparen'>(</span><span class='id identifier rubyid_changes'>changes</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="format_changelog_changes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>format_changelog_changes</strong>(changes) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/packages_helper.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_format_changelog_changes'>format_changelog_changes</span><span class='lparen'>(</span><span class='id identifier rubyid_changes'>changes</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_changes'>changes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;br&gt;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html_safe'>html_safe</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="format_changelog_date-instance_method">
+  
+    - (<tt>Object</tt>) <strong>format_changelog_date</strong>(date) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/packages_helper.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_format_changelog_date'>format_changelog_date</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_format_time'>format_time</span><span class='lparen'>(</span><span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_strptime'>strptime</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_date'>to_date</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:long</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="previewed_changelog-instance_method">
+  
+    - (<tt>Object</tt>) <strong>previewed_changelog</strong>(lines) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/packages_helper.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_previewed_changelog'>previewed_changelog</span><span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_html'>html</span> <span class='op'>=</span> <span class='id identifier rubyid_format_changelog_changes'>format_changelog_changes</span><span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>10</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_html'>html</span> <span class='op'>+=</span> <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_more_lines'>more_lines</span> <span class='op'>=</span> <span class='id identifier rubyid_number_with_delimiter'>number_with_delimiter</span><span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>10</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_link_to'>link_to</span> <span class='lparen'>(</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Show %s more line(s)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>%</span> <span class='id identifier rubyid_more_lines'>more_lines</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show-more-changelog</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_html'>html</span> <span class='op'>+=</span> <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>div</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:class</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>more-changelog</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_format_changelog_changes'>format_changelog_changes</span><span class='lparen'>(</span><span class='id identifier rubyid_lines'>lines</span><span class='lbracket'>[</span><span class='int'>10</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Jun  6 11:24:10 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.1 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

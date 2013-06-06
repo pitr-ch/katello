@@ -117,6 +117,7 @@
     <span class='symbol'>:organizations</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>Organization</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Organizations</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:environments</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>KTEnvironment</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Environments</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:activation_keys</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>ActivationKey</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Activation Keys</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='symbol'>:system_groups</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>SystemGroup</span><span class='comma'>,</span> <span class='symbol'>:name</span><span class='op'>=&gt;</span><span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>System Groups</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:providers</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>Provider</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Providers</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:users</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>User</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>true</span><span class='rbrace'>}</span><span class='comma'>,</span>
     <span class='symbol'>:roles</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:model</span> <span class='op'>=&gt;</span> <span class='const'>Role</span><span class='comma'>,</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Roles</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='symbol'>:global</span><span class='op'>=&gt;</span><span class='kw'>true</span><span class='rbrace'>}</span><span class='comma'>,</span>
@@ -461,10 +462,10 @@
       <pre class="lines">
 
 
-557</pre>
+559</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 557</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 559</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -511,10 +512,10 @@
       <pre class="lines">
 
 
-556</pre>
+558</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 556</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 558</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span></pre>
     </td>
@@ -561,10 +562,10 @@
       <pre class="lines">
 
 
-558</pre>
+560</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db/schema.rb', line 558</span>
+      <pre class="code"><span class="info file"># File 'db/schema.rb', line 560</span>
 
 <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_datetime'>datetime</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:null</span> <span class='op'>=&gt;</span> <span class='kw'>false</span></pre>
     </td>
@@ -927,7 +928,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:27 2013 by
+  Generated on Thu Jun  6 11:24:28 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

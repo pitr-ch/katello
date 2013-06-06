@@ -196,7 +196,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#registerable%3F-instance_method" title="#registerable? (instance method)">- (Boolean) <strong>registerable?</strong>(env, org) </a>
+      <a href="#registerable%3F-instance_method" title="#registerable? (instance method)">- (Boolean) <strong>registerable?</strong>(env, org, content_view = nil) </a>
     
 
     
@@ -432,7 +432,7 @@
       <div class="method_details ">
   <h3 class="signature " id="registerable?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>registerable?</strong>(env, org) 
+    - (<tt>Boolean</tt>) <strong>registerable?</strong>(env, org, content_view = nil) 
   
 
   
@@ -470,19 +470,15 @@
 54
 55
 56
-57
-58
-59</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/authorization/system.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_registerable?'>registerable?</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_org'>org</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_env'>env</span>
-    <span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_systems_registerable?'>systems_registerable?</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_org'>org</span><span class='period'>.</span><span class='id identifier rubyid_systems_registerable?'>systems_registerable?</span>
-  <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_registerable?'>registerable?</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='comma'>,</span> <span class='id identifier rubyid_org'>org</span><span class='comma'>,</span> <span class='id identifier rubyid_content_view'>content_view</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_subscribable'>subscribable</span> <span class='op'>=</span> <span class='id identifier rubyid_content_view'>content_view</span> <span class='op'>?</span> <span class='id identifier rubyid_content_view'>content_view</span><span class='period'>.</span><span class='id identifier rubyid_subscribable?'>subscribable?</span> <span class='op'>:</span> <span class='kw'>true</span>
+  <span class='id identifier rubyid_registerable'>registerable</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span> <span class='op'>||</span> <span class='id identifier rubyid_org'>org</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_systems_registerable?'>systems_registerable?</span>
+  <span class='id identifier rubyid_subscribable'>subscribable</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_registerable'>registerable</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -494,7 +490,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:14 2013 by
+  Generated on Thu Jun  6 11:24:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

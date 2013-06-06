@@ -1358,7 +1358,7 @@ of pool entries.</p>
   <span class='ivar'>@organization</span> <span class='op'>=</span> <span class='id identifier rubyid_current_organization'>current_organization</span>
   <span class='id identifier rubyid_accessible_envs'>accessible_envs</span> <span class='op'>=</span> <span class='id identifier rubyid_current_organization'>current_organization</span><span class='period'>.</span><span class='id identifier rubyid_environments'>environments</span>
   <span class='id identifier rubyid_setup_environment_selector'>setup_environment_selector</span><span class='lparen'>(</span><span class='id identifier rubyid_current_organization'>current_organization</span><span class='comma'>,</span> <span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='rparen'>)</span>
-  <span class='ivar'>@environment</span> <span class='op'>=</span> <span class='id identifier rubyid_first_env_in_path'>first_env_in_path</span><span class='lparen'>(</span><span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='rparen'>)</span>
+  <span class='ivar'>@environment</span> <span class='op'>=</span> <span class='id identifier rubyid_first_env_in_path'>first_env_in_path</span><span class='lparen'>(</span><span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>new</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:locals</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:activation_key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_activation_key'>activation_key</span><span class='comma'>,</span>
                                         <span class='symbol'>:accessible_envs</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_accessible_envs'>accessible_envs</span><span class='rbrace'>}</span>
@@ -2114,7 +2114,7 @@ in the array is for a pool and the elements of the hash are details for that poo
 </div>
 
     <div id="footer">
-  Generated on Thu May  9 10:36:48 2013 by
+  Generated on Thu Jun  6 11:24:55 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>
