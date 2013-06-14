@@ -56,18 +56,6 @@ else
   end
 end
 
-# TODO to be removed after config path is made configurable in LdapFluff
-candidates       = [
-    # production environment
-    LdapFluff::CONFIG,
-    # rpm build environment
-    '/opt/rh/ruby193/root' + LdapFluff::CONFIG,
-    # on travis and in development environment
-    File.join(Gem.loaded_specs['ldap_fluff'].full_gem_path, 'etc', 'ldap_fluff.yml')]
-config_file_path = candidates.find { |path| File.exist? path }
-raise "missing LdapFluff config file, candidates: #{candidates.join(' ')}" if config_file_path.nil?
-LdapFluff::CONFIG = config_file_path unless LdapFluff::CONFIG == config_file_path
-
 module Src
   class Application < Rails::Application
 
@@ -160,6 +148,8 @@ module Src
     config.assets.enabled = true
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
+
+    config.assets.paths << Rails.root.join("app", "assets")
 
     config.assets.precompile << Proc.new do |path|
       if path =~ /\.(css|js)\z/
